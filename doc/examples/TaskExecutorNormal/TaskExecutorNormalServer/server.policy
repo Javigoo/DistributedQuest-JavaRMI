@@ -1,0 +1,11 @@
+/* AUTOMATICALLY GENERATED ON Sun Oct 06 20:04:54 CEST 2019*/
+/* DO NOT EDIT */
+
+grant codeBase "file:/Users/eloigabal/Developement/Debatre/TaskExecutor/TaskExecutorServer/src/" {
+  permission java.security.AllPermission;
+};
+
+grant {
+  permission java.security.AllPermission;
+};
+

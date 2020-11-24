@@ -1,0 +1,10 @@
+grant {
+    //security required for idea console running
+    permission java.util.PropertyPermission "idea.launcher.port", "read";
+    permission java.lang.RuntimePermission "loadLibrary./Applications/IntelliJ IDEA.app/Contents/bin/libbreakgen64.jnilib";
+    permission java.lang.reflect.ReflectPermission "suppressAccessChecks";
+    permission java.util.PropertyPermission "idea.launcher.bin.path", "read";
+    //permission to write file
+    permission java.io.FilePermission "/Users/eloigabal/Desktop/*", "read,write";
+
+};
