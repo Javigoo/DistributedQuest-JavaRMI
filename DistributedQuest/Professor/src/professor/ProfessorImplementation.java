@@ -53,7 +53,7 @@ private class Exam {
         return this.questions[question].isTheCorrectResponse(response);
     }
 
-    public List<String> getNextQuestion(){
+    public String[] getNextQuestion(){
         return this.questions.next();
     }
 }
@@ -85,7 +85,7 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Serv
     }
 
     public void sendNextQuestion() {
-        List<String> question = Exam.getNextQuestion();
+        Array question = Exam.getNextQuestion();
         for (int i=0; i<this.students.length(); i++){
             this.students[i].setNextQuestion(question);
         }

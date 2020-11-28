@@ -1,14 +1,18 @@
 package student;
 
+import common.StudentInterface;
+
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StudentImplementation extends UnicastRemoteObject implements StudentInterface{
     /**
      *
      */
     private static final long serialVersionUID = 1L;
-    private List<ArrayList> questions = new ArrayList<ArrayList>();
+    private List<String[]> questions = new ArrayList<String[]>();
     private String universityID;
     private Integer grade;
 
@@ -16,9 +20,9 @@ public class StudentImplementation extends UnicastRemoteObject implements Studen
         this.universityID = universityID;
     }
 
-    public void setNextQuestion(List<String> question) throws RemoteException {
+    public void setNextQuestion(String[] question) throws RemoteException {
         synchronized(this) {
-            this.questions.add(question);
+            this.questions.add((String[]) question);
             this.notify();
         }
     }
