@@ -1,10 +1,10 @@
-package profesor;
+package professor;
 import java.io.File;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
-import common.ProfesorInterface;
+import common.ProfessorInterface;
 import common.StudentInterface;
 
 private class Exam {
@@ -58,11 +58,11 @@ private class Exam {
     }
 }
 
-public class ProfesorImplementation extends UnicastRemoteObject implements ServerInterface {
+public class ProfessorImplementation extends UnicastRemoteObject implements ServerInterface {
     private HashMap<StudentInterface, List<Integer>> studentResponses = new HashMap<>();
     private Exam exam = new Exam();
 
-    public ProfesorImplementation() throws RemoteException {
+    public ProfessorImplementation() throws RemoteException {
         super();
     }
 
@@ -109,6 +109,6 @@ public class ProfesorImplementation extends UnicastRemoteObject implements Serve
     
 
     public void finishExam(){
-    } // The profesor decides to finish the exam.
+    } // The professor decides to finish the exam.
 
 }

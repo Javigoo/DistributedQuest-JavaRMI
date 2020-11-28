@@ -8,7 +8,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-public class Profesor {
+public class Professor {
     private static Registry startRegistry(Integer port) throws RemoteException {
         if (port == null) {
             port = 1099;
@@ -31,9 +31,9 @@ public class Profesor {
     public static void main(String[] args) {
         try {
             Registry registry = startRegistry(null);
-            ProfesorImplementation obj = new ProfesorImplementation();
+            ProfessorImplementation obj = new ProfessorImplementation();
             try {
-                registry.bind("Profesor", (Remote) obj);
+                registry.bind("Professor", (Remote) obj);
             } catch (Exception e){
                 System.err.println("Server exception: " + e.toString()); e.printStackTrace();
             }

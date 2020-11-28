@@ -1,6 +1,6 @@
 package student;
 
-import common.ProfesorInterface;
+import common.ProfessorInterface;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -13,7 +13,7 @@ public class Student {
         try {
             Registry registry = LocateRegistry.getRegistry(host);
             StudentImplementation student = new StudentImplementation(universityID);
-            Profesor stub = (Profesor) registry.lookup("Profesor");
+            Professor stub = (Professor) registry.lookup("Professor");
             stub.registerStudent(student);
             System.out.println("Student registered, waiting for notification");
             synchronized(student){
