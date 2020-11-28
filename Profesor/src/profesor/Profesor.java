@@ -1,3 +1,13 @@
+package profesor;
+
+import common.StudentInterface;
+
+import java.rmi.AlreadyBoundException;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
 public class Profesor {
     private static Registry startRegistry(Integer port) throws RemoteException {
         if (port == null) {
