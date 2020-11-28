@@ -1,4 +1,4 @@
-package server;
+package profesor;
 import java.io.File;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
