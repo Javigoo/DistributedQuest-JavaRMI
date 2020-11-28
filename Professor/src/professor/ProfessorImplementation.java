@@ -59,6 +59,10 @@ private class Exam {
 }
 
 public class ProfessorImplementation extends UnicastRemoteObject implements ServerInterface {
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     private HashMap<StudentInterface, List<Integer>> studentResponses = new HashMap<>();
     private Exam exam = new Exam();
 

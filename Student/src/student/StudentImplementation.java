@@ -4,6 +4,10 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 public class StudentImplementation extends UnicastRemoteObject implements StudentInterface{
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     private List<ArrayList> questions = new ArrayList<ArrayList>();
     private String universityID;
     private Integer grade;
