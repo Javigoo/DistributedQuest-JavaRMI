@@ -67,11 +67,17 @@ public class ProfesorImplementation extends UnicastRemoteObject implements Serve
     }
 
     public void registerStudent(StudentInterface student) throws RemoteException {
-        this.studentResponses.add(student); // ¿Se guarda el universityID fuera del objeto?
+        synchronized(this) {
+            this.studentResponses.add(student); // ¿Se guarda el universityID fuera del objeto?
+            this.notify();
+        }
     }
 
     public void responseAnAnswer(StudentInterface student, Integer choice) throws RemoteException {
-        this.responses[student].add(choice);
+        synchronized(this) {
+            this.responses[student].add(choice);
+            this.notify();
+        }
     }
 
     public void sendNextQuestion() {
