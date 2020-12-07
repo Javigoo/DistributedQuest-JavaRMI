@@ -1,4 +1,4 @@
-package profesor;
+package professor;
 
 import common.StudentInterface;
 
@@ -38,11 +38,14 @@ public class Professor {
                 System.err.println("Server exception: " + e.toString()); e.printStackTrace();
             }
 
+            /**
             try {
                 // LOGICA DE LA APLICACION DEL PROFE.
             } catch (InterruptedException e) {
                 System.err.println("Server exception: " + e.toString()); e.printStackTrace();
             }
+             **/
+
         } catch (Exception e) {
             System.err.println("Server exception: " + e.toString()); e.printStackTrace();
         }

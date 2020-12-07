@@ -3,18 +3,18 @@ import java.io.File;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.List;
 
-import common.ProfessorInterface;
 import common.StudentInterface;
 
 private class Exam {
     private class Question {
         List<String> choices = new ArrayList<String>();
-        Integer correctChoice = None;
+        Integer correctChoice = null;
 
-        public question(List<String> choices, Integer correctChoice){
-            if (choices.length()>=correctChoice){
-                throw Exception;
+        public void question(List<String> choices, Integer correctChoice){
+            if (choices.length() >= correctChoice){
+                throw new Exception;
             }
             this.choices = choices;
             this.correctChoice = correctChoice;
