@@ -20,12 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24315298-2e50-45f1-967f-fe86defd775c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Exam.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exam.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exam.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/StudentInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/StudentInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/professor/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/professor/Professor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/professor/ProfessorImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/professor/ProfessorImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Student/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Student/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Student/src/student/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Student/src/student/Student.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +43,33 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/professor" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Professor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="professor.Professor" />
+      <module name="Professor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="professor.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Professor" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -68,9 +95,25 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser" timestamp="1607356581511">
+    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser" timestamp="1607357566123">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1607356581511" />
+    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1607357566123" />
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom" timestamp="1607359164054">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607359164054" />
+    <state width="1750" height="318" key="GridCell.Tab.0.center" timestamp="1607359164053">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607359164053" />
+    <state width="1750" height="318" key="GridCell.Tab.0.left" timestamp="1607359164050">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607359164050" />
+    <state width="1750" height="318" key="GridCell.Tab.0.right" timestamp="1607359164054">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607359164054" />
   </component>
 </project>

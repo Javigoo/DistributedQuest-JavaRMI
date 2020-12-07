@@ -1,8 +1,6 @@
 package professor;
 
-import common.StudentInterface;
-
-import java.rmi.AlreadyBoundException;
+import java.io.File;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -37,6 +35,8 @@ public class Professor {
             } catch (Exception e){
                 System.err.println("Server exception: " + e.toString()); e.printStackTrace();
             }
+
+            obj.uploadExam("./src/Exam.csv");   // Hacerlo compatible
 
             /**
             try {
