@@ -20,20 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24315298-2e50-45f1-967f-fe86defd775c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/Professor/Professor.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/Student/Student.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/DistributedQuest.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/ClientInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/ServerInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/professor/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/professor/ServerImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/ProfessorInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/professor/ProfessorImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Student/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Student/src/common/ProfessorInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DistributedQuest-Old/Professor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/Professor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DistributedQuest-Old/Student/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/Student/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/ProfessorInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/StudentInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/professor/Professor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/professor/ProfessorImplementation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/ClientInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/StudentInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/ServerInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/professor/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/professor/Professor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/professor/ServerImplementation.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Student/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Student/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Student/src/common/ClientInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Student/src/common/StudentInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Student/src/common/ServerInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Student/src/student/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Student/src/student/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Student/src/student/ClientImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Student/src/student/StudentImplementation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,8 +68,8 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="professor.Server" />
+    <configuration name="Professor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="professor.Professor" />
       <module name="Professor" />
       <extension name="coverage">
         <pattern>
@@ -81,7 +83,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Server" />
+        <item itemvalue="Application.Professor" />
       </list>
     </recent_temporary>
   </component>
@@ -116,25 +118,29 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1607357566123" />
+    <state x="502" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1607364947588">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="502" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1607364947588" />
     <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607363058386">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1607363058386" />
-    <state width="1750" height="318" key="GridCell.Tab.0.bottom" timestamp="1607363151272">
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom" timestamp="1607365910536">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607363151272" />
-    <state width="1750" height="318" key="GridCell.Tab.0.center" timestamp="1607363151271">
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607365910536" />
+    <state width="1750" height="318" key="GridCell.Tab.0.center" timestamp="1607365910534">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607363151271" />
-    <state width="1750" height="318" key="GridCell.Tab.0.left" timestamp="1607363151271">
+    <state width="1750" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607365910534" />
+    <state width="1750" height="318" key="GridCell.Tab.0.left" timestamp="1607365910531">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607363151271" />
-    <state width="1750" height="318" key="GridCell.Tab.0.right" timestamp="1607363151272">
+    <state width="1750" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607365910531" />
+    <state width="1750" height="318" key="GridCell.Tab.0.right" timestamp="1607365910535">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607363151272" />
+    <state width="1750" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607365910535" />
   </component>
 </project>

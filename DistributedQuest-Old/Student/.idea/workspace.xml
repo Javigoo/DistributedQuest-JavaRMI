@@ -20,8 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b5d38be-3e87-4470-aadc-b858a98fcea6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../DistributedQuest/Professor/src/common/ProfessorInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DistributedQuest/Professor/src/professor/ProfessorImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DistributedQuest/Student/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DistributedQuest/Student/src/common/ProfessorInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Professor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DistributedQuest/Professor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DistributedQuest/Professor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DistributedQuest/Professor/src/common/ClientInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DistributedQuest/Professor/src/common/StudentInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DistributedQuest/Professor/src/common/ServerInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DistributedQuest/Professor/src/professor/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DistributedQuest/Professor/src/professor/Professor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DistributedQuest/Professor/src/professor/ServerImplementation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DistributedQuest/Student/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DistributedQuest/Student/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DistributedQuest/Student/src/common/ClientInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DistributedQuest/Student/src/common/StudentInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DistributedQuest/Student/src/common/ServerInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DistributedQuest/Student/src/student/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DistributedQuest/Student/src/student/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DistributedQuest/Student/src/student/ClientImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DistributedQuest/Student/src/student/StudentImplementation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

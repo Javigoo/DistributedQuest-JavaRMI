@@ -1,8 +1,7 @@
 package student;
 
-import common.ClientInterface;
+import common.StudentInterface;
 
-import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Scanner;
@@ -10,9 +9,9 @@ import java.util.Scanner;
 /**
  *
  */
-public class ClientImplementation extends UnicastRemoteObject implements ClientInterface {
+public class StudentImplementation extends UnicastRemoteObject implements StudentInterface {
     int secretNumber = 0;
-    public ClientImplementation() throws RemoteException{
+    public StudentImplementation() throws RemoteException{
         super();
     }
 
@@ -36,7 +35,7 @@ public class ClientImplementation extends UnicastRemoteObject implements ClientI
     }
 
     public void notifyStart() throws RemoteException{
-        System.out.println("The game is going to start");
+        System.out.println("The exam is going to start");
 //        Scanner keyboard = new Scanner(System.in);
 //        System.out.println("enter an integer");
 //        secretNumber = keyboard.nextInt();

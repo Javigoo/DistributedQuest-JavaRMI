@@ -1,6 +1,6 @@
 package professor;
 
-import common.ClientInterface;
+import common.StudentInterface;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -11,7 +11,7 @@ import java.util.Random;
 /**
  *
  */
-public class Server {
+public class Professor {
     private static Registry startRegistry(Integer port)
             throws RemoteException {
         if(port == null) {
@@ -34,34 +34,41 @@ public class Server {
     }
 
     public static void main(String args[]) {
+        final Integer STUDENTS_NUMBER = 2;
         try {
             Registry registry = startRegistry(null);
-            ServerImplementation obj = new ServerImplementation();
-            registry.bind("Hello", (ServerImplementation) obj);
+            ProfessorImplementation obj = new ProfessorImplementation();
+            registry.bind("Exam", (ProfessorImplementation) obj);
             try {
                 while(true) {
                     synchronized (obj) {
+                        obj.uploadExam("./src/Exam.csv");   // Hacerlo compatible
+                        System.out.println("The professor has uploaded the exam");
+
                         Random r = new Random();
                         int myNumber = r.nextInt(10);
-                        System.out.println("number "+myNumber);
-                        while (obj.getNumPlayers() < 1) {
-                            System.out.println("Players registered " + obj.getNumPlayers());
+                        //System.out.println("number "+myNumber);
+
+                        while (obj.getNumStudents() < STUDENTS_NUMBER) {
+                            System.out.println("Number of students joined: [" + obj.getNumStudents() + "/" + STUDENTS_NUMBER +"]");
                             obj.wait();
                         }
-                        System.out.println("Starting game");
+                        System.out.println("Number of students joined: [" + obj.getNumStudents() + "/" + STUDENTS_NUMBER +"]");
+
+                        System.out.println("The professor has started the exam");
                         obj.notifyStart();
-                        while (obj.answers < obj.getNumPlayers()) {
+                        while (obj.answers < obj.getNumStudents()) {
                             System.out.println("recieved number");
                             obj.wait();
                         }
                         System.out.println("Finishing game");
 
-                        List<ClientInterface> winners = obj.getWinners(myNumber);
-                        List<ClientInterface> loosers = obj.getLoosers(myNumber);
-                        for (ClientInterface c : winners) {
+                        List<StudentInterface> winners = obj.getWinners(myNumber);
+                        List<StudentInterface> loosers = obj.getLoosers(myNumber);
+                        for (StudentInterface c : winners) {
                             c.notifyWinner();
                         }
-                        for (ClientInterface c : loosers) {
+                        for (StudentInterface c : loosers) {
                             c.notifyLooser();
                         }
                         obj.restart();

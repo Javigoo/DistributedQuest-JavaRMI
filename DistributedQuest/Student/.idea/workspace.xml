@@ -20,15 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b5d38be-3e87-4470-aadc-b858a98fcea6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/common/ClientInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/ServerInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/student/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/student/ClientImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Professor/src/common/ProfessorInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Professor/src/professor/ProfessorImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/ProfessorInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DistributedQuest-Old/Professor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/Professor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DistributedQuest-Old/Student/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/Student/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Professor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Professor/src/common/ClientInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/src/common/StudentInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Professor/src/common/ServerInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Professor/src/professor/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/src/professor/Professor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Professor/src/professor/ServerImplementation.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/ProfessorInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/StudentInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/student/Student.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/student/StudentImplementation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/ClientInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/StudentInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/ServerInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/student/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/student/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/student/ClientImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/student/StudentImplementation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +53,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/common" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -55,8 +64,8 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="student.Client" />
+    <configuration name="Student" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="student.Student" />
       <module name="Student" />
       <extension name="coverage">
         <pattern>
@@ -70,7 +79,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.Student" />
       </list>
     </recent_temporary>
   </component>
@@ -98,9 +107,25 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607363283716">
+    <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607365156683">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1607363283716" />
+    <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1607365156683" />
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom" timestamp="1607365822222">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607365822222" />
+    <state width="1750" height="318" key="GridCell.Tab.0.center" timestamp="1607365822219">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607365822219" />
+    <state width="1750" height="318" key="GridCell.Tab.0.left" timestamp="1607365822218">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607365822218" />
+    <state width="1750" height="318" key="GridCell.Tab.0.right" timestamp="1607365822221">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607365822221" />
   </component>
 </project>
