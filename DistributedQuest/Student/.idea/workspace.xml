@@ -20,8 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b5d38be-3e87-4470-aadc-b858a98fcea6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Professor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/ClientInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/ServerInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/student/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/student/ClientImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/ProfessorInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/StudentInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/student/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/student/StudentImplementation.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +46,33 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/common" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/common" />
+      <recent name="$PROJECT_DIR$/src/student" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="student.Client" />
+      <module name="Student" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="student.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Client" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -62,5 +96,11 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607363283716">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1607363283716" />
   </component>
 </project>
