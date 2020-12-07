@@ -5,6 +5,7 @@ import common.ProfessorInterface;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.Scanner;
 
 /**
  *
@@ -16,7 +17,13 @@ public class Student {
             Registry registry = LocateRegistry.getRegistry(host);
             StudentImplementation client = new StudentImplementation();
             ProfessorInterface stub = (ProfessorInterface) registry.lookup("Exam");
-            stub.registerStudent(client,"abc123");
+            Scanner keyboard = new Scanner(System.in);
+
+            System.out.println("Enter the student id: ");
+            String student_id = keyboard.nextLine();
+
+
+            stub.registerStudent(client,student_id);
             System.out.println("Student joined, waiting for notification");
             synchronized(client){
                 client.wait();
