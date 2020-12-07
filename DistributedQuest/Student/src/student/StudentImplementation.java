@@ -30,7 +30,7 @@ public class StudentImplementation extends UnicastRemoteObject implements Studen
     }
     public void getSecretNumber(){
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("enter an integer");
+        System.out.println("Enter choice number:");
         secretNumber = keyboard.nextInt();
     }
 

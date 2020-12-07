@@ -17,13 +17,12 @@ public class Student {
             Registry registry = LocateRegistry.getRegistry(host);
             StudentImplementation client = new StudentImplementation();
             ProfessorInterface stub = (ProfessorInterface) registry.lookup("Exam");
-            Scanner keyboard = new Scanner(System.in);
 
+            Scanner keyboard = new Scanner(System.in);
             System.out.println("Enter the student id: ");
             String student_id = keyboard.nextLine();
 
-
-            stub.registerStudent(client,student_id);
+            stub.registerStudent(student_id,client);
             System.out.println("Student joined, waiting for notification");
             synchronized(client){
                 client.wait();

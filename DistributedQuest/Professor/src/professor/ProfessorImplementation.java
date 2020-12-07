@@ -17,24 +17,26 @@ import java.util.List;
  *
  */
 public class ProfessorImplementation extends UnicastRemoteObject implements ProfessorInterface {
-    HashMap<StudentInterface,String> students = new HashMap<>();
-    HashMap<StudentInterface,Integer> clientNumber = new HashMap<>();
+    HashMap<String, StudentInterface> students = new HashMap<>();
+    List<List<String>> questions = new ArrayList<>();
 
+    HashMap<StudentInterface,Integer> clientNumber = new HashMap<>();
     int answers = 0;
 
     public ProfessorImplementation() throws RemoteException{
         super();
     }
-    public void registerStudent(StudentInterface client, String id) throws RemoteException {
+
+    public void registerStudent(String id, StudentInterface client) throws RemoteException {
         synchronized (this) {
-            students.put(client, id);
+            students.put(id, client);
             this.notify();
         }
     }
 
     public void sendAnswerNumber(StudentInterface client, int number) throws RemoteException{
         synchronized (this) {
-            System.out.println(number);
+            //System.out.println(number);
             clientNumber.put(client, number);
             answers ++;
             this.notify();
@@ -43,9 +45,9 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
 
     public List<StudentInterface> getWinners(int number){
         List<StudentInterface> returns = new ArrayList<>();
-        for (StudentInterface client: students.keySet()){
-            System.out.println(clientNumber.get(client));
-            System.out.println(number);
+        for (StudentInterface client: students.values()){
+            //System.out.println(clientNumber.get(client));
+            //System.out.println(number);
 
             if (clientNumber.get(client) == number){
                 returns.add(client);
@@ -56,7 +58,7 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
 
     public List<StudentInterface> getLoosers(int number){
         List<StudentInterface> returns = new ArrayList<>();
-        for (StudentInterface client: students.keySet()){
+        for (StudentInterface client: students.values()){
             if (clientNumber.get(client) != number){
                 returns.add(client);
             }
@@ -66,7 +68,7 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
 
     public void notifyStart(){
         List<StudentInterface> error_clients = new ArrayList<StudentInterface>();
-        for (StudentInterface c : students.keySet()) {
+        for (StudentInterface c : students.values()) {
             try{
                 c.notifyStart();
             }catch(RemoteException e){
@@ -100,5 +102,6 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
         } catch (IOException e) {
             e.printStackTrace();
         }
+        this.questions = questions;
     }
 }

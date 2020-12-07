@@ -23,8 +23,13 @@
       <change beforePath="$PROJECT_DIR$/../../DistributedQuest-Old/Professor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/Professor/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../DistributedQuest-Old/Student/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/Student/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/ProfessorInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/ProfessorInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/professor/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/professor/Professor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/professor/ProfessorImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/professor/ProfessorImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Student/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Student/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Student/src/common/ProfessorInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Student/src/common/ProfessorInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Student/src/student/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Student/src/student/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Student/src/student/StudentImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Student/src/student/StudentImplementation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,21 +120,26 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1607363058386" />
-    <state width="1750" height="318" key="GridCell.Tab.0.bottom" timestamp="1607366915172">
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom" timestamp="1607374527826">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607366915172" />
-    <state width="1750" height="318" key="GridCell.Tab.0.center" timestamp="1607366915171">
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607374527826" />
+    <state width="1750" height="318" key="GridCell.Tab.0.center" timestamp="1607374527823">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607366915171" />
-    <state width="1750" height="318" key="GridCell.Tab.0.left" timestamp="1607366915169">
+    <state width="1750" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607374527823" />
+    <state width="1750" height="318" key="GridCell.Tab.0.left" timestamp="1607374527822">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607366915169" />
-    <state width="1750" height="318" key="GridCell.Tab.0.right" timestamp="1607366915172">
+    <state width="1750" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607374527822" />
+    <state width="1750" height="318" key="GridCell.Tab.0.right" timestamp="1607374527825">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607366915172" />
+    <state width="1750" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607374527825" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Professor$Professor.ic" NAME="Professor Coverage Results" MODIFIED="1607373017051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>professor.*</FILTER>
+    </SUITE>
   </component>
 </project>

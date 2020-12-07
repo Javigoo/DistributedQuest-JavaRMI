@@ -5,8 +5,10 @@ import common.StudentInterface;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  *
@@ -34,7 +36,7 @@ public class Professor {
     }
 
     public static void main(String args[]) {
-        final Integer STUDENTS_NUMBER = 2;
+        final Integer STUDENTS_NUMBER = 1;
         try {
             Registry registry = startRegistry(null);
             ProfessorImplementation obj = new ProfessorImplementation();
@@ -57,10 +59,17 @@ public class Professor {
 
                         System.out.println("The professor has started the exam");
                         obj.notifyStart();
-                        while (obj.answers < obj.getNumStudents()) {
-                            System.out.println("recieved number");
-                            obj.wait();
+
+
+                        for (String student : obj.students.keySet()) {
+                            System.out.println("Student id: " + student);
                         }
+
+                        while (obj.answers < obj.getNumStudents()) {
+                            obj.wait();
+                            System.out.println("Student:" + obj.students + "Recieved answer number: " + obj.answers);
+                        }
+
                         System.out.println("Finishing game");
 
                         List<StudentInterface> winners = obj.getWinners(myNumber);
