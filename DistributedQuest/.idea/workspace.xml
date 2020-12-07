@@ -19,9 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b5d38be-3e87-4470-aadc-b858a98fcea6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Professor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="adfb3fde-cc51-4754-a44b-0352bf3890f6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Professor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Professor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Professor/Professor.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Student/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Student/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Student/Student.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +31,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1lIDPsQ6rK6cVuS1q1hqTLXokWj" />
+  <component name="ProjectId" id="1lL2v4HCWg2rdtTewR5mYsH4RgL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -43,11 +45,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8b5d38be-3e87-4470-aadc-b858a98fcea6" name="Default Changelist" comment="" />
-      <created>1607275691314</created>
+      <changelist id="adfb3fde-cc51-4754-a44b-0352bf3890f6" name="Default Changelist" comment="" />
+      <created>1607362279279</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1607275691314</updated>
+      <updated>1607362279279</updated>
     </task>
     <servers />
   </component>
@@ -61,6 +63,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
