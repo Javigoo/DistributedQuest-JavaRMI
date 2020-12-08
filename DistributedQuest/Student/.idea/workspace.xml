@@ -23,11 +23,9 @@
       <change beforePath="$PROJECT_DIR$/../../DistributedQuest-Old/Professor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/Professor/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../DistributedQuest-Old/Student/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/Student/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Professor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Professor/src/common/ProfessorInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/src/common/ProfessorInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Professor/src/professor/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/src/professor/Professor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Professor/src/professor/ProfessorImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/src/professor/ProfessorImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/ProfessorInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/ProfessorInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/student/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/student/Student.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,21 +102,21 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1607365156683" />
-    <state width="1750" height="318" key="GridCell.Tab.0.bottom" timestamp="1607436053946">
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom" timestamp="1607446998040">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607436053946" />
-    <state width="1750" height="318" key="GridCell.Tab.0.center" timestamp="1607436053941">
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607446998040" />
+    <state width="1750" height="318" key="GridCell.Tab.0.center" timestamp="1607446998037">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607436053941" />
-    <state width="1750" height="318" key="GridCell.Tab.0.left" timestamp="1607436053939">
+    <state width="1750" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607446998037" />
+    <state width="1750" height="318" key="GridCell.Tab.0.left" timestamp="1607446998036">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607436053939" />
-    <state width="1750" height="318" key="GridCell.Tab.0.right" timestamp="1607436053944">
+    <state width="1750" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607446998036" />
+    <state width="1750" height="318" key="GridCell.Tab.0.right" timestamp="1607446998038">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607436053944" />
+    <state width="1750" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607446998038" />
   </component>
 </project>

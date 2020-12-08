@@ -28,10 +28,10 @@ public class Student {
 
             synchronized(client){
                 client.wait();
+
                 client.getSecretNumber();
                 stub.sendAnswerNumber(client, client.secretNumber);
                 client.wait();
-                stub.sendAnswerNumber(client, client.secretNumber);
                 System.exit(0);
             }
 

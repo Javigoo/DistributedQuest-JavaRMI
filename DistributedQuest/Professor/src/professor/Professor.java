@@ -2,6 +2,7 @@ package professor;
 
 import common.StudentInterface;
 
+import java.io.File;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -46,7 +47,7 @@ public class Professor {
 
                     // 1. The professor will upload a csv file to the application with the exam’s questions, choices and answers, following this format:
                     //      Question?;choice1;choice2;choice3;...;correct_answer_number.
-                    obj.uploadExam("./src/Exam.csv");
+                    obj.uploadCSV(new File("./src/Exam.csv"));
 
                     //2. The professor will start the exam session and wait for the students to join the room:
                     //      a. The professor needs to know how many students are in the room.
@@ -56,7 +57,13 @@ public class Professor {
                     //      a. It is not possible for students to connect after the professor begins the exam. A message will be received indicating this.
                     obj.startExam();
 
+                    //5. The server will start sending the questions and choices to the students in order(The correct answer will never be sent).
+                    for (StudentInterface c : obj.students.values()) {
+                        System.out.printf(String.valueOf(obj.exam.getNextQuestion())+"\n");
+                        System.out.printf(String.valueOf(obj.exam.getNextQuestion())+"\n");
+                    }
 
+                    /**
                     // Lista las id's de los alumnos que se han unido
                     for (String student : obj.students.keySet()) {
                         System.out.println("Student id: " + student);
@@ -75,7 +82,7 @@ public class Professor {
                     }
 
                     System.out.println("Finishing game");
-                    /**
+
                     List<StudentInterface> winners = obj.getWinners(myNumber);
                     List<StudentInterface> loosers = obj.getLoosers(myNumber);
                     for (StudentInterface c : winners) {
@@ -84,8 +91,10 @@ public class Professor {
                     for (StudentInterface c : loosers) {
                         c.notifyLooser();
                     }
-                     **/
                     obj.restart();
+                     **/
+
+                    System.exit(0);
                 }
 
             } catch (InterruptedException e) {

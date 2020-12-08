@@ -4,26 +4,87 @@ import common.ProfessorInterface;
 import common.StudentInterface;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  *
  */
+class Exam {
+    List<Question> questions;
+    ListIterator<Question> iteratorQuestions;
+
+
+    public Exam(){
+        this.questions = new ArrayList<Question>();
+        this.iteratorQuestions = this.questions.listIterator();
+
+    }
+
+    public static class Question {
+        List<String> choices;
+        Integer correctChoice;
+
+        public Question(List<String> choices, Integer correctChoice) {
+            this.choices = choices;
+            this.correctChoice = correctChoice;
+        }
+
+        public void question(List<String> choices, Integer correctChoice) throws Exception {
+            if (choices.size() >= correctChoice){
+                throw new Exception();
+            }
+            this.choices = choices;
+            this.correctChoice = correctChoice;
+        }
+
+        public Boolean isTheCorrectResponse(Integer response){
+            if (response==this.correctChoice){
+                return true;
+            }
+            return false;
+        }
+
+        public List<String> getChoices(){
+            return this.choices;
+        }
+
+        @Override
+        public String toString() {
+            return "Question{" +
+                    "choices=" + choices +
+                    ", correctChoice=" + correctChoice +
+                    '}';
+        }
+    }
+
+    public Boolean isCorrectAnswer(Integer question, Integer response){
+        //return this.questions[question].isTheCorrectResponse(response);
+        return null;
+    }
+
+    public Question getNextQuestion(){
+        while(iteratorQuestions.hasNext()){
+            return iteratorQuestions.next();
+        }
+        return null; // Finalizar examen
+    }
+
+}
+
 public class ProfessorImplementation extends UnicastRemoteObject implements ProfessorInterface {
     HashMap<String, StudentInterface> students = new HashMap<>();
-    List<List<String>> questions = new ArrayList<>();
+    Exam exam = new Exam();
 
     public ProfessorImplementation() throws RemoteException{
         super();
     }
 
+    /**
     public void uploadExam(String csvFile) {
         List<List<String>> questions = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
@@ -37,6 +98,31 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
         }
         this.questions = questions;
         System.out.println("The professor has uploaded the exam");
+    }
+     **/
+
+    public void uploadCSV(File csv){
+
+        try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                List<String> choices = new ArrayList<String>();
+                Integer correctChoice = -1;
+
+                List<String> values = Arrays.asList(line.split(";"));
+
+                for (int i = 1; i<values.size()-1;i++) {
+                    choices.add(values.get(i));
+                }
+
+                correctChoice = Integer.parseInt(values.get(values.size() - 1));
+
+                this.exam.questions.add(new Exam.Question(choices, correctChoice));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void waitStudents(Integer studentsNumber) throws InterruptedException {
@@ -75,6 +161,7 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
             this.students.remove(c);
         }
     }
+
 
     /**
      *  ####################################################################################
