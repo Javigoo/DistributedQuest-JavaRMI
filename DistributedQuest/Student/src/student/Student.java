@@ -22,13 +22,16 @@ public class Student {
             System.out.println("Enter the student id: ");
             String student_id = keyboard.nextLine();
 
-            stub.registerStudent(student_id,client);
-            System.out.println("Student joined, waiting for notification");
+            // 3. The students connect to the room and wait for the exam to start.
+            //      a. When joining the exam, students will need to send their university ID.
+            stub.joinExam(student_id,client);
+
             synchronized(client){
                 client.wait();
                 client.getSecretNumber();
                 stub.sendAnswerNumber(client, client.secretNumber);
                 client.wait();
+                stub.sendAnswerNumber(client, client.secretNumber);
                 System.exit(0);
             }
 

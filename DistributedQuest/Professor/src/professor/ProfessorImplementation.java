@@ -20,19 +20,68 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
     HashMap<String, StudentInterface> students = new HashMap<>();
     List<List<String>> questions = new ArrayList<>();
 
-    HashMap<StudentInterface,Integer> clientNumber = new HashMap<>();
-    int answers = 0;
-
     public ProfessorImplementation() throws RemoteException{
         super();
     }
 
-    public void registerStudent(String id, StudentInterface client) throws RemoteException {
+    public void uploadExam(String csvFile) {
+        List<List<String>> questions = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(";");
+                questions.add(Arrays.asList(values));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        this.questions = questions;
+        System.out.println("The professor has uploaded the exam");
+    }
+
+    public void waitStudents(Integer studentsNumber) throws InterruptedException {
+        while (this.getNumStudents() < studentsNumber) {
+            System.out.println("Number of students joined: [" + this.getNumStudents() + "/" + studentsNumber +"]");
+            this.wait();
+        }
+        System.out.println("Number of students joined: [" + this.getNumStudents() + "/" + studentsNumber +"]");
+
+    }
+
+    public int getNumStudents(){
+        return students.size();
+    }
+
+    public void joinExam(String id, StudentInterface client) throws RemoteException {
         synchronized (this) {
             students.put(id, client);
             this.notify();
         }
+        System.out.println("Student: " + id + " joined, waiting for notification");
     }
+
+    public void startExam(){
+        System.out.println("The professor has started the exam");
+        List<StudentInterface> error_clients = new ArrayList<StudentInterface>();
+        for (StudentInterface c : students.values()) {
+            try{
+                c.notifyStart();
+            }catch(RemoteException e){
+                System.out.println("Student is not reachable");
+                error_clients.add(c);
+            }
+        }
+        for(StudentInterface c: error_clients){
+            this.students.remove(c);
+        }
+    }
+
+    /**
+     *  ####################################################################################
+     */
+
+    HashMap<StudentInterface,Integer> clientNumber = new HashMap<>();
+    int answers = 0;
 
     public void sendAnswerNumber(StudentInterface client, int number) throws RemoteException{
         synchronized (this) {
@@ -66,42 +115,10 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
         return returns;
     }
 
-    public void notifyStart(){
-        List<StudentInterface> error_clients = new ArrayList<StudentInterface>();
-        for (StudentInterface c : students.values()) {
-            try{
-                c.notifyStart();
-            }catch(RemoteException e){
-                System.out.println("Student is not reachable");
-                error_clients.add(c);
-            }
-        }
-        for(StudentInterface c: error_clients){
-            this.students.remove(c);
-        }
-    }
-
-    public int getNumStudents(){
-        return students.size();
-    }
-
     public void restart(){
         this.students.clear();
         this.answers = 0;
         this.clientNumber.clear();
     }
 
-    public void uploadExam(String csvFile) {
-        List<List<String>> questions = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] values = line.split(";");
-                questions.add(Arrays.asList(values));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        this.questions = questions;
-    }
 }

@@ -42,48 +42,52 @@ public class Professor {
             ProfessorImplementation obj = new ProfessorImplementation();
             registry.bind("Exam", (ProfessorImplementation) obj);
             try {
-                while(true) {
-                    synchronized (obj) {
-                        obj.uploadExam("./src/Exam.csv");   // Hacerlo compatible
-                        System.out.println("The professor has uploaded the exam");
+                synchronized (obj) {
 
-                        Random r = new Random();
-                        int myNumber = r.nextInt(10);
-                        //System.out.println("number "+myNumber);
+                    // 1. The professor will upload a csv file to the application with the exam’s questions, choices and answers, following this format:
+                    //      Question?;choice1;choice2;choice3;...;correct_answer_number.
+                    obj.uploadExam("./src/Exam.csv");
 
-                        while (obj.getNumStudents() < STUDENTS_NUMBER) {
-                            System.out.println("Number of students joined: [" + obj.getNumStudents() + "/" + STUDENTS_NUMBER +"]");
-                            obj.wait();
-                        }
-                        System.out.println("Number of students joined: [" + obj.getNumStudents() + "/" + STUDENTS_NUMBER +"]");
+                    //2. The professor will start the exam session and wait for the students to join the room:
+                    //      a. The professor needs to know how many students are in the room.
+                    obj.waitStudents(STUDENTS_NUMBER);
 
-                        System.out.println("The professor has started the exam");
-                        obj.notifyStart();
+                    //4. The Professor will indicate when to begin the exam in the application.
+                    //      a. It is not possible for students to connect after the professor begins the exam. A message will be received indicating this.
+                    obj.startExam();
 
 
-                        for (String student : obj.students.keySet()) {
-                            System.out.println("Student id: " + student);
-                        }
-
-                        while (obj.answers < obj.getNumStudents()) {
-                            obj.wait();
-                            System.out.println("Student:" + obj.students + "Recieved answer number: " + obj.answers);
-                        }
-
-                        System.out.println("Finishing game");
-
-                        List<StudentInterface> winners = obj.getWinners(myNumber);
-                        List<StudentInterface> loosers = obj.getLoosers(myNumber);
-                        for (StudentInterface c : winners) {
-                            c.notifyWinner();
-                        }
-                        for (StudentInterface c : loosers) {
-                            c.notifyLooser();
-                        }
-                        obj.restart();
+                    // Lista las id's de los alumnos que se han unido
+                    for (String student : obj.students.keySet()) {
+                        System.out.println("Student id: " + student);
                     }
 
+                    int i = 0;
+                    while (i<10) {
+                        obj.wait();
+                        System.out.println("Student:" + obj.students.keySet() + " - choice number answer: " + obj.clientNumber.values());
+                        i += 1;
+
+                        for (StudentInterface student : obj.clientNumber.keySet()) {
+                            student.notify();
+                        }
+
+                    }
+
+                    System.out.println("Finishing game");
+                    /**
+                    List<StudentInterface> winners = obj.getWinners(myNumber);
+                    List<StudentInterface> loosers = obj.getLoosers(myNumber);
+                    for (StudentInterface c : winners) {
+                        c.notifyWinner();
+                    }
+                    for (StudentInterface c : loosers) {
+                        c.notifyLooser();
+                    }
+                     **/
+                    obj.restart();
                 }
+
             } catch (InterruptedException e) {
                 System.err.println("Server exception: " + e.toString()); e.printStackTrace();
             }
