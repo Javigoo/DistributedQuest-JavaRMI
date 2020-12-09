@@ -10,7 +10,10 @@ import java.util.Scanner;
  *
  */
 public class StudentImplementation extends UnicastRemoteObject implements StudentInterface {
-    int secretNumber = 0;
+
+    private int secretNumber = 0;
+    private ArrayList<List<String>> questions = new ArrayList<List<String>>();
+
     public StudentImplementation() throws RemoteException{
         super();
     }
@@ -42,8 +45,13 @@ public class StudentImplementation extends UnicastRemoteObject implements Studen
         synchronized (this) {
             this.notify();
         }
+    }
 
-
+    public void setQuestion(List<String> question) throws RemoteException {
+        synchronized(this) {
+            this.questions.add((List<String>) question);
+            this.notify();
+        }
     }
 
     public void notifyAlreadyStarted() throws RemoteException{
