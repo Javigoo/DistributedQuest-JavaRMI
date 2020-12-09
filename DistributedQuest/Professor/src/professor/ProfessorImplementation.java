@@ -159,15 +159,23 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
     }
 
     public Integer calculateGrade(StudentInterface student){
-        int wrongAnswers = 0;
+        int totalQuestions = this.exam.questions.size();
+        int correctAnswers = 0;
         int question = 1;
-        for (Integer answer: this.studentAnswers.get(student)) {
-            if (!this.exam.isCorrectAnswer(question, answer)){
-                wrongAnswers += 1;
+
+        List<Integer> answers = this.studentAnswers.get(student);
+         if (answers == null ){
+            // Si no se contesta una pregunta cuenta como incorrecta
+            return 0;
+        }
+        for (Integer answer: answers) {
+            if (this.exam.isCorrectAnswer(question, answer)){
+                correctAnswers += 1;
             }
             question += 1;
         }
-        return wrongAnswers;
+
+        return (10*correctAnswers)/totalQuestions;
     }
 
     public void finishExam(){

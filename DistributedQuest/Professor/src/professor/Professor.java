@@ -115,7 +115,7 @@ public class Professor {
                     Boolean allStudentsFinishExam = false;
                     while(!allStudentsFinishExam){
                         System.out.printf("Recibiendo respuestas\n");
-                        Thread.sleep(5000);
+                        Thread.sleep(2000);
                         //recibir respuestas alumnos
                     }
 
