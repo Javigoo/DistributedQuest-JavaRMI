@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class StudentImplementation extends UnicastRemoteObject implements StudentInterface {
 
     private int secretNumber = 0;
-    private ArrayList<List<String>> questions = new ArrayList<List<String>>();
+    private Queque<List<String>> questions = new Queque<List<String>>();
 
     public StudentImplementation() throws RemoteException{
         super();
@@ -52,6 +52,10 @@ public class StudentImplementation extends UnicastRemoteObject implements Studen
             this.questions.add((List<String>) question);
             this.notify();
         }
+    }
+
+    public List<String> getNextQuestion throws RemoteException {
+        return this.questions.poll();
     }
 
     public void notifyAlreadyStarted() throws RemoteException{

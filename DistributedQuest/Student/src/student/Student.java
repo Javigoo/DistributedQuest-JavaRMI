@@ -35,6 +35,12 @@ public class Student {
                 System.exit(0);
             }
 
+            //6. The students chose their answer and send it back to the server.
+            // a. It is possible that some students take longer to answer, this should not
+            // be a problem for the other students
+            
+
+
         } catch (RemoteException e) {
             System.err.println("remote exception: " + e.toString()); e.printStackTrace();
         } catch (Exception e){
