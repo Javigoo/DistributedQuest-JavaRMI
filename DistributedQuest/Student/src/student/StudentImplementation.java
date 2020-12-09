@@ -45,4 +45,10 @@ public class StudentImplementation extends UnicastRemoteObject implements Studen
 
 
     }
+
+    public void notifyAlreadyStarted() throws RemoteException{
+        System.out.println("The exam has already started");
+        System.exit(0);
+
+    }
 }

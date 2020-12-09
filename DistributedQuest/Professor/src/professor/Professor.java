@@ -42,19 +42,19 @@ public class Professor {
         //   All the grades will also be stored in a file on the professor’s computer.
         @Override
         public void run() {
-            System.out.println("ProfessorThread started");
             System.out.println("Enter \"q\" to finish the exam");
             while(true) {
                 try {
                     Scanner sc = new Scanner(System.in);
                     String input = sc.nextLine();
-                    System.out.println(input);
 
                     switch (input) {
                         case "q":
                             System.out.printf("Exam finished");
                             // Students will receive their grade and all the grades will be stored in a file on the professor’s computer.
                             System.exit(0);
+                            break;
+                        case "":
                             break;
                         default:
                             System.out.printf("\""+input+"\" is not a valid input");
@@ -69,22 +69,20 @@ public class Professor {
     }
 
     public static void main(String args[]) {
-        Boolean finishExam = false;
         final Integer STUDENTS_NUMBER = 1;
-
         ProfessorThread professorThread = new ProfessorThread();
-        professorThread.start();
 
         try {
             Registry registry = startRegistry(null);
             ProfessorImplementation obj = new ProfessorImplementation();
             registry.bind("Exam", (ProfessorImplementation) obj);
+            professorThread.start();
             try {
                 synchronized (obj) {
 
                     // 1. The professor will upload a csv file to the application with the exam’s questions, choices and answers, following this format:
                     //      Question?;choice1;choice2;choice3;...;correct_answer_number.
-                    obj.uploadCSV(new File("./src/Exam.csv"));
+                    obj.uploadCSV(new File("Exam.csv"));
 
                     //2. The professor will start the exam session and wait for the students to join the room:
                     //      a. The professor needs to know how many students are in the room.
@@ -105,7 +103,8 @@ public class Professor {
 
                     //6. The students chose their answer and send it back to the server.
                     //  a. It is possible that some students take longer to answer, this should not be a problem for the other students.
-                    while(!finishExam){
+                    Boolean allStudentsFinishExam = false;
+                    while(!allStudentsFinishExam){
                         System.out.printf("Recibiendo respuestas\n");
                         Thread.sleep(5000);
                         //recibir respuestas alumnos

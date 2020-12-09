@@ -20,7 +20,7 @@ public class Student {
 
             //Scanner keyboard = new Scanner(System.in);
             System.out.println("Enter the student id: ");
-            String student_id = "affa";
+            String student_id = "dda";
 
             // 3. The students connect to the room and wait for the exam to start.
             //      a. When joining the exam, students will need to send their university ID.

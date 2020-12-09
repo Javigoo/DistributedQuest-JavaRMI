@@ -17,10 +17,12 @@ import java.util.*;
 class Exam {
     List<Question> questions;
     Integer questionIterator;
+    Boolean examStarted;
 
     public Exam(){
-        this.questions = new ArrayList<Question>();
+        this.questions = new ArrayList<>();
         this.questionIterator = 0;
+        this.examStarted = false;
     }
 
     public static class Question {
@@ -66,6 +68,14 @@ class Exam {
         return null; // Finalizar examen
     }
 
+    public void startExam(){
+        this.examStarted = true;
+    }
+
+    public Boolean isStarted(){
+        return this.examStarted;
+    }
+
 }
 
 public class ProfessorImplementation extends UnicastRemoteObject implements ProfessorInterface {
@@ -76,30 +86,12 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
         super();
     }
 
-    /**
-    public void uploadExam(String csvFile) {
-        List<List<String>> questions = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] values = line.split(";");
-                questions.add(Arrays.asList(values));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        this.questions = questions;
-        System.out.println("The professor has uploaded the exam");
-    }
-     **/
-
     public void uploadCSV(File csv){
-
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
             String line;
             while ((line = br.readLine()) != null) {
-                List<String> choices = new ArrayList<String>();
-                Integer correctChoice = -1;
+                List<String> choices = new ArrayList<>();
+                Integer correctChoice;
 
                 List<String> values = Arrays.asList(line.split(";"));
 
@@ -119,8 +111,8 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
 
     public void waitStudents(Integer studentsNumber) throws InterruptedException {
         while (this.getNumStudents() < studentsNumber) {
-            System.out.println("Number of students joined: [" + this.getNumStudents() + "/" + studentsNumber +"]");
             this.wait();
+            System.out.println("Number of students joined: [" + this.getNumStudents() + "/" + studentsNumber +"]");
         }
         System.out.println("Number of students joined: [" + this.getNumStudents() + "/" + studentsNumber +"]");
 
@@ -130,9 +122,12 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
         return students.size();
     }
 
-    public void joinExam(String id, StudentInterface client) throws RemoteException {
+    public void joinExam(String id, StudentInterface student) throws RemoteException {
+        if (exam.isStarted()){
+            student.notifyAlreadyStarted();
+        }
         synchronized (this) {
-            students.put(id, client);
+            students.put(id, student);
             this.notify();
         }
         System.out.println("Student: " + id + " joined, waiting for notification");
@@ -140,16 +135,18 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
 
     public void startExam(){
         System.out.println("The professor has started the exam");
-        List<StudentInterface> error_clients = new ArrayList<StudentInterface>();
-        for (StudentInterface c : students.values()) {
+        this.exam.startExam();
+
+        List<StudentInterface> error_students = new ArrayList<StudentInterface>();
+        for (StudentInterface student : students.values()) {
             try{
-                c.notifyStart();
+                student.notifyStart();
             }catch(RemoteException e){
                 System.out.println("Student is not reachable");
-                error_clients.add(c);
+                error_students.add(student);
             }
         }
-        for(StudentInterface c: error_clients){
+        for(StudentInterface c: error_students){
             this.students.remove(c);
         }
     }

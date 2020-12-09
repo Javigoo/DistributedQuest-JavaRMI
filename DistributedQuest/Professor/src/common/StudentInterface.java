@@ -10,4 +10,6 @@ public interface StudentInterface extends Remote {
     public void notifyWinner() throws RemoteException;
     public void notifyLooser() throws RemoteException;
     public void notifyStart() throws RemoteException;
+    public void notifyAlreadyStarted() throws RemoteException;
+
 }
