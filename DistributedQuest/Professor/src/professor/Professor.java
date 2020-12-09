@@ -106,7 +106,7 @@ public class Professor {
                         Exam.Question question = obj.exam.getNextQuestion();
                         for (StudentInterface c : obj.students.values()) {
                             System.out.printf("Sent question "+ (i+1) + ": " + question + " to " + c + "\n");
-                            c.setQuestion(question.getChoices());
+                            c.setQuestion(question);
                         }
                     }
 

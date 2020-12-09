@@ -26,10 +26,12 @@ class Exam {
     }
 
     public static class Question {
-        List<String> choices;
-        Integer correctChoice;
+        public String question;
+        public List<String> choices;
+        private Integer correctChoice;
 
-        public Question(List<String> choices, Integer correctChoice) {
+        public Question(String question, List<String> choices, Integer correctChoice) {
+            this.question = question;
             this.choices = choices;
             this.correctChoice = correctChoice;
         }
@@ -39,10 +41,6 @@ class Exam {
                 return true;
             }
             return false;
-        }
-
-        public List<String> getChoices(){
-            return this.choices;
         }
 
         @Override
@@ -103,9 +101,11 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
                     choices.add(values.get(i));
                 }
 
-                correctChoice = Integer.parseInt(values.get(values.size() - 1));
+                String question = values.get( 0 );
 
-                this.exam.questions.add(new Exam.Question(choices, correctChoice));
+                Integer correctChoice = Integer.parseInt(values.get(values.size() - 1));
+
+                this.exam.questions.add(new Exam.Question( question, choices, correctChoice));
             }
         } catch (IOException e) {
             e.printStackTrace();

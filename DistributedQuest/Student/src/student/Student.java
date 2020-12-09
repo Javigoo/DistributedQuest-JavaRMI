@@ -38,7 +38,10 @@ public class Student {
             //6. The students chose their answer and send it back to the server.
             // a. It is possible that some students take longer to answer, this should not
             // be a problem for the other students
-            
+            while(true) {
+                Question question = client.getNextQuestion();
+                System.out.println('Pregunta: 'question.question)
+            }
 
 
         } catch (RemoteException e) {
