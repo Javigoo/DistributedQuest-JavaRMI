@@ -11,5 +11,7 @@ public interface StudentInterface extends Remote {
     public void notifyLooser() throws RemoteException;
     public void notifyStart() throws RemoteException;
     public void notifyAlreadyStarted() throws RemoteException;
+    public void notifyEnd(Integer grade) throws RemoteException;
+
 
 }

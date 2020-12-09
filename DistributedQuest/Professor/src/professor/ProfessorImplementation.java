@@ -60,16 +60,20 @@ class Exam {
 
 
     public Question getNextQuestion(){
-        if (this.questionIterator <= this.questions.size()){
+        if (this.questionIterator <= this.questions.size()) {
             Question nextQuestion = this.questions.get(this.questionIterator);
             this.questionIterator += 1;
             return nextQuestion;
         }
-        return null; // Finalizar examen
+        return null;
     }
 
     public void startExam(){
         this.examStarted = true;
+    }
+
+    public void finishExam(){
+        this.examStarted = false;
     }
 
     public Boolean isStarted(){
@@ -111,8 +115,8 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
 
     public void waitStudents(Integer studentsNumber) throws InterruptedException {
         while (this.getNumStudents() < studentsNumber) {
-            this.wait();
             System.out.println("Number of students joined: [" + this.getNumStudents() + "/" + studentsNumber +"]");
+            this.wait();
         }
         System.out.println("Number of students joined: [" + this.getNumStudents() + "/" + studentsNumber +"]");
 
@@ -123,13 +127,16 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
     }
 
     public void joinExam(String id, StudentInterface student) throws RemoteException {
+        //4. a. It is not possible for students to connect after the professor begins the exam. A message will be received indicating this.
         if (exam.isStarted()){
             student.notifyAlreadyStarted();
         }
+
         synchronized (this) {
             students.put(id, student);
             this.notify();
         }
+
         System.out.println("Student: " + id + " joined, waiting for notification");
     }
 
@@ -151,6 +158,21 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
         }
     }
 
+    public void finishExam(){
+        this.exam.finishExam();
+        List<StudentInterface> error_students = new ArrayList<StudentInterface>();
+        for (StudentInterface student : students.values()) {
+            try{
+                student.notifyEnd(2);
+            }catch(RemoteException e){
+                System.out.println("Student is not reachable");
+                error_students.add(student);
+            }
+        }
+        for(StudentInterface c: error_students){
+            this.students.remove(c);
+        }
+    }
 
     /**
      *  ####################################################################################

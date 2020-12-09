@@ -36,10 +36,17 @@ public class Professor {
         }
     }
 
-    static class ProfessorThread extends Thread {
+    static class ProfessorThread implements Runnable  {
         //9. When the professor decides to finish the exam, all currently connected students
         //   will receive their grade and the connection will end even if they have not finished the exam.
         //   All the grades will also be stored in a file on the professor’s computer.
+
+        ProfessorImplementation exam;
+
+        public ProfessorThread(ProfessorImplementation obj) {
+            this.exam = obj;
+        }
+
         @Override
         public void run() {
             System.out.println("Enter \"q\" to finish the exam");
@@ -51,7 +58,7 @@ public class Professor {
                     switch (input) {
                         case "q":
                             System.out.printf("Exam finished");
-                            // Students will receive their grade and all the grades will be stored in a file on the professor’s computer.
+                            this.exam.finishExam(); // Students will receive their grade and all the grades will be stored in a file on the professor’s computer.
                             System.exit(0);
                             break;
                         case "":
@@ -70,13 +77,16 @@ public class Professor {
 
     public static void main(String args[]) {
         final Integer STUDENTS_NUMBER = 1;
-        ProfessorThread professorThread = new ProfessorThread();
 
         try {
             Registry registry = startRegistry(null);
             ProfessorImplementation obj = new ProfessorImplementation();
             registry.bind("Exam", (ProfessorImplementation) obj);
-            professorThread.start();
+
+            ProfessorThread professorThread = new ProfessorThread(obj);
+            Thread thread = new Thread(professorThread);
+            thread.start();
+
             try {
                 synchronized (obj) {
 
@@ -89,7 +99,6 @@ public class Professor {
                     obj.waitStudents(STUDENTS_NUMBER);
 
                     //4. The Professor will indicate when to begin the exam in the application.
-                    //      a. It is not possible for students to connect after the professor begins the exam. A message will be received indicating this.
                     obj.startExam();
 
                     //5. The server will start sending the questions and choices to the students in order(The correct answer will never be sent).

@@ -29,10 +29,12 @@ public class Student {
             synchronized(client){
                 client.wait();
 
+                /**
                 client.getSecretNumber();
                 stub.sendAnswerNumber(client, client.secretNumber);
                 client.wait();
                 System.exit(0);
+                 **/
             }
 
         } catch (RemoteException e) {
