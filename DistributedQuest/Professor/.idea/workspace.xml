@@ -23,10 +23,8 @@
       <change beforePath="$PROJECT_DIR$/../../DistributedQuest-Old/Professor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/Professor/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../DistributedQuest-Old/Student/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/Student/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/professor/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/professor/Professor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/professor/ProfessorImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/professor/ProfessorImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Student/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Student/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Student/src/student/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Student/src/student/Student.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,34 +123,34 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="634" y="311" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1607442004152" />
-    <state width="1750" height="280" key="GridCell.Tab.0.bottom" timestamp="1607447169445">
+    <state width="1750" height="280" key="GridCell.Tab.0.bottom" timestamp="1607526181053">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="280" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607447169445" />
+    <state width="1750" height="280" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607526181053" />
     <state width="1750" height="207" key="GridCell.Tab.0.bottom/0.25.1792.1010@0.25.1792.1010" timestamp="1607435665225" />
-    <state width="1750" height="280" key="GridCell.Tab.0.center" timestamp="1607447169443">
+    <state width="1750" height="280" key="GridCell.Tab.0.center" timestamp="1607526181051">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="280" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607447169443" />
+    <state width="1750" height="280" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607526181051" />
     <state width="1750" height="207" key="GridCell.Tab.0.center/0.25.1792.1010@0.25.1792.1010" timestamp="1607435665223" />
-    <state width="1750" height="280" key="GridCell.Tab.0.left" timestamp="1607447169442">
+    <state width="1750" height="280" key="GridCell.Tab.0.left" timestamp="1607526181049">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="280" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607447169442" />
+    <state width="1750" height="280" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607526181049" />
     <state width="1750" height="207" key="GridCell.Tab.0.left/0.25.1792.1010@0.25.1792.1010" timestamp="1607435665222" />
-    <state width="1750" height="280" key="GridCell.Tab.0.right" timestamp="1607447169444">
+    <state width="1750" height="280" key="GridCell.Tab.0.right" timestamp="1607526181052">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="280" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607447169444" />
+    <state width="1750" height="280" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607526181052" />
     <state width="1750" height="207" key="GridCell.Tab.0.right/0.25.1792.1010@0.25.1792.1010" timestamp="1607435665224" />
     <state x="384" y="138" key="SettingsEditor" timestamp="1607444495384">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="384" y="138" key="SettingsEditor/0.0.1792.1120@0.0.1792.1120" timestamp="1607444495384" />
-    <state x="398" y="300" width="996" height="623" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1607444025462">
+    <state x="398" y="300" width="996" height="623" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1607525937194">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="398" y="300" width="996" height="623" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1792.1120@0.0.1792.1120" timestamp="1607444025462" />
+    <state x="398" y="300" width="996" height="623" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1792.1120@0.0.1792.1120" timestamp="1607525937194" />
     <state x="634" y="312" key="extract.method.dialog" timestamp="1607436963983">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
@@ -164,6 +162,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.UnsupportedOperationException" package="java.lang" />
           <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.ConcurrentModificationException" package="java.util" />
+          <option name="timeStamp" value="2" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

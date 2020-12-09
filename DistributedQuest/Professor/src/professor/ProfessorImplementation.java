@@ -16,12 +16,12 @@ import java.util.*;
  */
 class Exam {
     List<Question> questions;
-    ListIterator<Question> iteratorQuestions;
+    Integer questionIterator;
 
 
     public Exam(){
         this.questions = new ArrayList<Question>();
-        this.iteratorQuestions = this.questions.listIterator();
+        this.questionIterator = 0;
 
     }
 
@@ -68,8 +68,10 @@ class Exam {
     }
 
     public Question getNextQuestion(){
-        while(iteratorQuestions.hasNext()){
-            return iteratorQuestions.next();
+        if (this.questionIterator <= this.questions.size()){
+            Question nextQuestion = this.questions.get(this.questionIterator);
+            this.questionIterator += 1;
+            return nextQuestion;
         }
         return null; // Finalizar examen
     }
