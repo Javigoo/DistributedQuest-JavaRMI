@@ -23,8 +23,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Student/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Student/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../DistributedQuest/Professor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DistributedQuest/Professor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DistributedQuest/Professor/src/professor/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DistributedQuest/Professor/src/professor/Professor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../DistributedQuest/Professor/src/professor/ProfessorImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DistributedQuest/Professor/src/professor/ProfessorImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../DistributedQuest/Student/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DistributedQuest/Student/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DistributedQuest/Student/src/student/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DistributedQuest/Student/src/student/Student.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

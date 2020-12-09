@@ -18,11 +18,9 @@ class Exam {
     List<Question> questions;
     Integer questionIterator;
 
-
     public Exam(){
         this.questions = new ArrayList<Question>();
         this.questionIterator = 0;
-
     }
 
     public static class Question {
@@ -30,14 +28,6 @@ class Exam {
         Integer correctChoice;
 
         public Question(List<String> choices, Integer correctChoice) {
-            this.choices = choices;
-            this.correctChoice = correctChoice;
-        }
-
-        public void question(List<String> choices, Integer correctChoice) throws Exception {
-            if (choices.size() >= correctChoice){
-                throw new Exception();
-            }
             this.choices = choices;
             this.correctChoice = correctChoice;
         }
@@ -63,9 +53,9 @@ class Exam {
     }
 
     public Boolean isCorrectAnswer(Integer question, Integer response){
-        //return this.questions[question].isTheCorrectResponse(response);
-        return null;
+        return this.questions.get(question).isTheCorrectResponse(response);
     }
+
 
     public Question getNextQuestion(){
         if (this.questionIterator <= this.questions.size()){

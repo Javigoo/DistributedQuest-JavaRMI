@@ -18,9 +18,9 @@ public class Student {
             StudentImplementation client = new StudentImplementation();
             ProfessorInterface stub = (ProfessorInterface) registry.lookup("Exam");
 
-            Scanner keyboard = new Scanner(System.in);
+            //Scanner keyboard = new Scanner(System.in);
             System.out.println("Enter the student id: ");
-            String student_id = keyboard.nextLine();
+            String student_id = "affa";
 
             // 3. The students connect to the room and wait for the exam to start.
             //      a. When joining the exam, students will need to send their university ID.

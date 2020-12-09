@@ -36,8 +36,45 @@ public class Professor {
         }
     }
 
+    static class ProfessorThread extends Thread {
+        //9. When the professor decides to finish the exam, all currently connected students
+        //   will receive their grade and the connection will end even if they have not finished the exam.
+        //   All the grades will also be stored in a file on the professor’s computer.
+        @Override
+        public void run() {
+            System.out.println("ProfessorThread started");
+            System.out.println("Enter \"q\" to finish the exam");
+            while(true) {
+                try {
+                    Scanner sc = new Scanner(System.in);
+                    String input = sc.nextLine();
+                    System.out.println(input);
+
+                    switch (input) {
+                        case "q":
+                            System.out.printf("Exam finished");
+                            // Students will receive their grade and all the grades will be stored in a file on the professor’s computer.
+                            System.exit(0);
+                            break;
+                        default:
+                            System.out.printf("\""+input+"\" is not a valid input");
+                            break;
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
     public static void main(String args[]) {
+        Boolean finishExam = false;
         final Integer STUDENTS_NUMBER = 1;
+
+        ProfessorThread professorThread = new ProfessorThread();
+        professorThread.start();
+
         try {
             Registry registry = startRegistry(null);
             ProfessorImplementation obj = new ProfessorImplementation();
@@ -58,9 +95,20 @@ public class Professor {
                     obj.startExam();
 
                     //5. The server will start sending the questions and choices to the students in order(The correct answer will never be sent).
-                    for (StudentInterface c : obj.students.values()) {
-                        System.out.printf(String.valueOf(obj.exam.getNextQuestion())+"\n");
-                        System.out.printf(String.valueOf(obj.exam.getNextQuestion())+"\n");
+                    for (int i = 0; i < obj.exam.questions.size(); i++){
+                        Exam.Question question = obj.exam.getNextQuestion();
+                        for (StudentInterface c : obj.students.values()) {
+                            System.out.printf("Sent question "+ (i+1) + ": " + question + " to " + c + "\n");
+
+                        }
+                    }
+
+                    //6. The students chose their answer and send it back to the server.
+                    //  a. It is possible that some students take longer to answer, this should not be a problem for the other students.
+                    while(!finishExam){
+                        System.out.printf("Recibiendo respuestas\n");
+                        Thread.sleep(5000);
+                        //recibir respuestas alumnos
                     }
 
                     /**
