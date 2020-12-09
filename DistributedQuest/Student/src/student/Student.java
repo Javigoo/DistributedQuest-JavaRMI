@@ -47,7 +47,7 @@ public class Student {
                 System.out.println("Introduce your answer: ");
                 Scanner keyboard = new Scanner(System.in);
 
-                stub.sendAnswerNumber(client.secretNumber, keyboard);
+                stub.setAnswer(client, keyboard);
 
             }
 

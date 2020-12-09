@@ -92,6 +92,7 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
     Exam exam = new Exam();
     HashMap<String, StudentInterface> students = new HashMap<>();
     HashMap<StudentInterface, List<Integer>> studentAnswers = new HashMap<>();
+    HashMap<StudentInterface, Boolean> studentIsFinished = new HashMap<>();
 
     public ProfessorImplementation() throws RemoteException{
         super();
@@ -142,7 +143,9 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
         }
 
         synchronized (this) {
-            students.put(id, student);
+            this.students.put(id, student);
+            this.studentAnswers.put(student, new List<Integer>);
+            this.studentIsFinished.put(student, false);
             this.notify();
         }
 
@@ -164,6 +167,18 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
         }
         for(StudentInterface c: error_students){
             this.students.remove(c);
+        }
+    }
+
+    public void setAnswer(Student student, Integer answer) {
+        synchronized(this) {
+            List<String> student_answers = this.studentAnswers.get(student);
+            student_answers.append(answer);
+            if (student_answers.length == this.exam.questions.length) {
+                // The student is finished.
+                this.studentIsFinished.get(student) == true;
+            }
+            this.notify();
         }
     }
 
