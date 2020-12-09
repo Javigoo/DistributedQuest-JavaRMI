@@ -34,7 +34,7 @@ class Exam {
             this.correctChoice = correctChoice;
         }
 
-        public Boolean isTheCorrectResponse(Integer response){
+        public Boolean isCorrectAnswer(Integer response){
             if (response==this.correctChoice){
                 return true;
             }
@@ -55,9 +55,8 @@ class Exam {
     }
 
     public Boolean isCorrectAnswer(Integer question, Integer response){
-        return this.questions.get(question).isTheCorrectResponse(response);
+        return this.questions.get(question).isCorrectAnswer(response);
     }
-
 
     public Question getNextQuestion(){
         if (this.questionIterator <= this.questions.size()) {
@@ -83,8 +82,9 @@ class Exam {
 }
 
 public class ProfessorImplementation extends UnicastRemoteObject implements ProfessorInterface {
-    HashMap<String, StudentInterface> students = new HashMap<>();
     Exam exam = new Exam();
+    HashMap<String, StudentInterface> students = new HashMap<>();
+    HashMap<StudentInterface, List<Integer>> studentAnswers = new HashMap<>();
 
     public ProfessorImplementation() throws RemoteException{
         super();
@@ -158,12 +158,25 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
         }
     }
 
+    public Integer calculateGrade(StudentInterface student){
+        int wrongAnswers = 0;
+        int question = 1;
+        for (Integer answer: this.studentAnswers.get(student)) {
+            if (!this.exam.isCorrectAnswer(question, answer)){
+                wrongAnswers += 1;
+            }
+            question += 1;
+        }
+        return wrongAnswers;
+    }
+
     public void finishExam(){
         this.exam.finishExam();
         List<StudentInterface> error_students = new ArrayList<StudentInterface>();
         for (StudentInterface student : students.values()) {
             try{
-                student.notifyEnd(2);
+                int grade = calculateGrade(student);
+                student.notifyEnd(grade);
             }catch(RemoteException e){
                 System.out.println("Student is not reachable");
                 error_students.add(student);
@@ -173,6 +186,7 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
             this.students.remove(c);
         }
     }
+
 
     /**
      *  ####################################################################################
