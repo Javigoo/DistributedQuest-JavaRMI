@@ -21,9 +21,15 @@
   <component name="ChangeListManager">
     <list default="true" id="24315298-2e50-45f1-967f-fe86defd775c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/ProfessorInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/ProfessorInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/StudentInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/StudentInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/professor/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/professor/Professor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/professor/ProfessorImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/professor/ProfessorImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Student/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Student/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Student/src/common/ProfessorInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Student/src/common/ProfessorInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Student/src/common/StudentInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Student/src/common/StudentInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Student/src/student/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Student/src/student/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Student/src/student/StudentImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Student/src/student/StudentImplementation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,13 +56,13 @@
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/common" />
-      <recent name="$PROJECT_DIR$/src/professor" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/professor" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/common" />
       <recent name="$PROJECT_DIR$/src/professor" />
     </key>
   </component>
@@ -107,10 +113,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser" timestamp="1607443147101">
+    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser" timestamp="1607550416991">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1607443147101" />
+    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1607550416991" />
     <state x="502" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1607364947588">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
@@ -123,25 +129,25 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="634" y="311" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1607442004152" />
-    <state width="1750" height="280" key="GridCell.Tab.0.bottom" timestamp="1607536385277">
+    <state width="1750" height="280" key="GridCell.Tab.0.bottom" timestamp="1607550714828">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="280" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607536385277" />
+    <state width="1750" height="280" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607550714828" />
     <state width="1750" height="207" key="GridCell.Tab.0.bottom/0.25.1792.1010@0.25.1792.1010" timestamp="1607435665225" />
-    <state width="1750" height="280" key="GridCell.Tab.0.center" timestamp="1607536385274">
+    <state width="1750" height="280" key="GridCell.Tab.0.center" timestamp="1607550714824">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="280" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607536385274" />
+    <state width="1750" height="280" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607550714824" />
     <state width="1750" height="207" key="GridCell.Tab.0.center/0.25.1792.1010@0.25.1792.1010" timestamp="1607435665223" />
-    <state width="1750" height="280" key="GridCell.Tab.0.left" timestamp="1607536385272">
+    <state width="1750" height="280" key="GridCell.Tab.0.left" timestamp="1607550714823">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="280" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607536385272" />
+    <state width="1750" height="280" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607550714823" />
     <state width="1750" height="207" key="GridCell.Tab.0.left/0.25.1792.1010@0.25.1792.1010" timestamp="1607435665222" />
-    <state width="1750" height="280" key="GridCell.Tab.0.right" timestamp="1607536385275">
+    <state width="1750" height="280" key="GridCell.Tab.0.right" timestamp="1607550714826">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="280" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607536385275" />
+    <state width="1750" height="280" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607550714826" />
     <state width="1750" height="207" key="GridCell.Tab.0.right/0.25.1792.1010@0.25.1792.1010" timestamp="1607435665224" />
     <state x="384" y="138" key="SettingsEditor" timestamp="1607444495384">
       <screen x="0" y="0" width="1792" height="1120" />

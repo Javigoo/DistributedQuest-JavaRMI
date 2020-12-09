@@ -21,9 +21,15 @@
   <component name="ChangeListManager">
     <list default="true" id="8b5d38be-3e87-4470-aadc-b858a98fcea6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../Professor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Professor/src/common/ProfessorInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/src/common/ProfessorInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Professor/src/common/StudentInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/src/common/StudentInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Professor/src/professor/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/src/professor/Professor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Professor/src/professor/ProfessorImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/src/professor/ProfessorImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/ProfessorInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/ProfessorInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/StudentInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/StudentInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/student/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/student/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/student/StudentImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/student/StudentImplementation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,25 +101,29 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser" timestamp="1607550027979">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1607550027979" />
     <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607365156683">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1607365156683" />
-    <state width="848" height="318" key="GridCell.Tab.0.bottom" timestamp="1607532345934">
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom" timestamp="1607550757629">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="848" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607532345934" />
-    <state width="848" height="318" key="GridCell.Tab.0.center" timestamp="1607532345931">
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607550757629" />
+    <state width="1750" height="318" key="GridCell.Tab.0.center" timestamp="1607550757627">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="848" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607532345931" />
-    <state width="848" height="318" key="GridCell.Tab.0.left" timestamp="1607532345930">
+    <state width="1750" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607550757627" />
+    <state width="1750" height="318" key="GridCell.Tab.0.left" timestamp="1607550757626">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="848" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607532345930" />
-    <state width="848" height="318" key="GridCell.Tab.0.right" timestamp="1607532345933">
+    <state width="1750" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607550757626" />
+    <state width="1750" height="318" key="GridCell.Tab.0.right" timestamp="1607550757628">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="848" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607532345933" />
+    <state width="1750" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607550757628" />
   </component>
 </project>

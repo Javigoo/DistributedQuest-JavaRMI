@@ -6,9 +6,6 @@ import java.io.File;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -106,7 +103,7 @@ public class Professor {
                         Exam.Question question = obj.exam.getNextQuestion();
                         for (StudentInterface c : obj.students.values()) {
                             System.out.printf("Sent question "+ (i+1) + ": " + question + " to " + c + "\n");
-                            c.setQuestion(question);
+                            //c.setQuestion(question);
                         }
                     }
 

@@ -94,9 +94,9 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
     HashMap<StudentInterface, List<Integer>> studentAnswers = new HashMap<>();
     HashMap<StudentInterface, Boolean> studentIsFinished = new HashMap<>();
 
-    public ProfessorImplementation() throws RemoteException{
-        super();
+    protected ProfessorImplementation() throws RemoteException {
     }
+
 
     public void uploadCSV(File csv){
         try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
@@ -110,12 +110,10 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
                 for (int i = 1; i<values.size()-1;i++) {
                     choices.add(values.get(i));
                 }
+                String question = values.get(0);
+                correctChoice = Integer.parseInt(values.get(values.size() - 1));
 
-                String question = values.get( 0 );
-
-                Integer correctChoice = Integer.parseInt(values.get(values.size() - 1));
-
-                this.exam.questions.add(new Exam.Question( question, choices, correctChoice));
+                this.exam.questions.add(new Exam.Question(question, choices, correctChoice));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -144,7 +142,7 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
 
         synchronized (this) {
             this.students.put(id, student);
-            this.studentAnswers.put(student, new List<Integer>);
+            this.studentAnswers.put(student, null);
             this.studentIsFinished.put(student, false);
             this.notify();
         }
@@ -153,7 +151,12 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
     }
 
     public Boolean allStudentsFinishExam() {
-        datos.forEach((student, isFinished) -> if (isFinished==false){ return false; }));
+        for (Boolean isFinished: this.studentIsFinished.values()){
+            if(!isFinished){
+                return false;
+            }
+        }
+
         return true;
     }
 
@@ -175,13 +178,13 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
         }
     }
 
-    public void setAnswer(Student student, Integer answer) {
+    public void setAnswer(StudentInterface student, int answer) {
         synchronized(this) {
-            List<String> student_answers = this.studentAnswers.get(student);
-            student_answers.append(answer);
-            if (student_answers.length == this.exam.questions.length) {
+            List<Integer> studentAnswers = this.studentAnswers.get(student);
+            studentAnswers.add(answer);
+            if (studentAnswers.size() == this.exam.questions.size()) {
                 // The student is finished.
-                this.studentIsFinished.get(student) == true;
+                // this.studentIsFinished.get(student) == true;
             }
             this.notify();
         }

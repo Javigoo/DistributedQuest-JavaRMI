@@ -4,15 +4,53 @@ import common.StudentInterface;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
+import java.util.Queue;
 import java.util.Scanner;
 
 /**
  *
  */
+class Question {
+    private String question;
+    private List<String> choices;
+    private Integer correctChoice;
+
+    public Question(String question, List<String> choices, Integer correctChoice) {
+        this.question = question;
+        this.choices = choices;
+        this.correctChoice = correctChoice;
+    }
+
+    // Solo puede acceder el profesor.
+    protected Boolean isCorrectAnswer(Integer response){
+        if (response==this.correctChoice){
+            return true;
+        }
+        return false;
+    }
+
+    public String getQuestion() {
+        return this.question;
+    }
+
+    public List<String> getChoices() {
+        return this.choices;
+    }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "choices=" + choices +
+                ", correctChoice=" + correctChoice +
+                '}';
+    }
+}
+
 public class StudentImplementation extends UnicastRemoteObject implements StudentInterface {
 
     private int secretNumber = 0;
-    private Queque<Question> questions = new Queque<Question>();
+    private Queue<Question> questions;
 
     public StudentImplementation() throws RemoteException{
         super();
@@ -49,7 +87,7 @@ public class StudentImplementation extends UnicastRemoteObject implements Studen
 
     public void setQuestion(Question question) throws RemoteException {
         synchronized(this) {
-            this.questions.add((Question) question);
+            this.questions.add(question);
             this.notify();
         }
     }
@@ -68,4 +106,5 @@ public class StudentImplementation extends UnicastRemoteObject implements Studen
         System.out.println("The exam is over, your grade is " + grade);
         System.exit(1);
     }
+
 }
