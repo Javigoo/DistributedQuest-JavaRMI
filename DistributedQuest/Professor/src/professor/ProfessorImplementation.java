@@ -152,6 +152,11 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
         System.out.println("Student: " + id + " joined, waiting for notification");
     }
 
+    public Boolean allStudentsFinishExam() {
+        datos.forEach((student, isFinished) -> if (isFinished==false){ return false; }));
+        return true;
+    }
+
     public void startExam(){
         System.out.println("The professor has started the exam");
         this.exam.startExam();

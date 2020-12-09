@@ -112,8 +112,7 @@ public class Professor {
 
                     //6. The students chose their answer and send it back to the server.
                     //  a. It is possible that some students take longer to answer, this should not be a problem for the other students.
-                    Boolean allStudentsFinishExam = false;
-                    while(!allStudentsFinishExam){
+                    while(!obj.allStudentsFinishExam()){
                         System.out.printf("Recibiendo respuestas\n");
                         Thread.sleep(2000);
                         //recibir respuestas alumnos
