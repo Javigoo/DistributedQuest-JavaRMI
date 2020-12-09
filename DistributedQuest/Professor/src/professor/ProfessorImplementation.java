@@ -26,8 +26,8 @@ class Exam {
     }
 
     public static class Question {
-        public String question;
-        public List<String> choices;
+        private String question;
+        private List<String> choices;
         private Integer correctChoice;
 
         public Question(String question, List<String> choices, Integer correctChoice) {
@@ -36,11 +36,20 @@ class Exam {
             this.correctChoice = correctChoice;
         }
 
-        public Boolean isCorrectAnswer(Integer response){
+        // Solo puede acceder el profesor.
+        protected Boolean isCorrectAnswer(Integer response){
             if (response==this.correctChoice){
                 return true;
             }
             return false;
+        }
+
+        public String getQuestion() {
+            return this.question;
+        }
+
+        public List<String> getChoices() {
+            return this.choices;
         }
 
         @Override

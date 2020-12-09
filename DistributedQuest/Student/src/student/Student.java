@@ -40,7 +40,15 @@ public class Student {
             // be a problem for the other students
             while(true) {
                 Question question = client.getNextQuestion();
-                System.out.println('Pregunta: 'question.question)
+                System.out.println('Pregunta: 'question.getQuestion())
+                for (String choice : question.getChoices()) {
+                    System.out.println(choice);
+                }
+                System.out.println("Introduce your answer: ");
+                Scanner keyboard = new Scanner(System.in);
+
+                stub.sendAnswerNumber(client.secretNumber, keyboard);
+
             }
 
 
