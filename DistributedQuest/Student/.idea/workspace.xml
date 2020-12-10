@@ -20,22 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b5d38be-3e87-4470-aadc-b858a98fcea6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/.idea/DistributedQuest-Old.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Professor/src/common/Question.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/Question.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Professor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Professor/src/common/ProfessorInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/src/common/ProfessorInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Professor/src/common/StudentInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/src/common/StudentInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Professor/src/common/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/src/common/Question.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Professor/src/professor/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/src/professor/Professor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Professor/src/professor/ProfessorImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/src/professor/ProfessorImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/ProfessorInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/ProfessorInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/StudentInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/StudentInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/Question.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/student/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/student/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/student/StudentImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/student/StudentImplementation.java" afterDir="false" />
     </list>
@@ -48,15 +38,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectId" id="1lIDPsQ6rK6cVuS1q1hqTLXokWj" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/common" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
@@ -64,6 +57,7 @@
       <recent name="common" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/common" />
       <recent name="$PROJECT_DIR$/src/student" />
     </key>
@@ -111,58 +105,58 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser" timestamp="1607594265948">
+    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser" timestamp="1607597329193">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1607594265948" />
+    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1607597329193" />
     <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607365156683">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1607365156683" />
-    <state width="1750" height="318" key="GridCell.Tab.0.bottom" timestamp="1607596465570">
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom" timestamp="1607601023652">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607596465570" />
-    <state width="1750" height="318" key="GridCell.Tab.0.center" timestamp="1607596465568">
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607601023652" />
+    <state width="1750" height="318" key="GridCell.Tab.0.center" timestamp="1607601023650">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607596465568" />
-    <state width="1750" height="318" key="GridCell.Tab.0.left" timestamp="1607596465567">
+    <state width="1750" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607601023650" />
+    <state width="1750" height="318" key="GridCell.Tab.0.left" timestamp="1607601023648">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607596465567" />
-    <state width="1750" height="318" key="GridCell.Tab.0.right" timestamp="1607596465569">
+    <state width="1750" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607601023648" />
+    <state width="1750" height="318" key="GridCell.Tab.0.right" timestamp="1607601023651">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607596465569" />
-    <state width="1750" height="392" key="GridCell.Tab.1.bottom" timestamp="1607594789789">
+    <state width="1750" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607601023651" />
+    <state width="1750" height="392" key="GridCell.Tab.1.bottom" timestamp="1607599581261">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="392" key="GridCell.Tab.1.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607594789789" />
-    <state width="1750" height="392" key="GridCell.Tab.1.center" timestamp="1607594789787">
+    <state width="1750" height="392" key="GridCell.Tab.1.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607599581261" />
+    <state width="1750" height="392" key="GridCell.Tab.1.center" timestamp="1607599581256">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="392" key="GridCell.Tab.1.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607594789787" />
-    <state width="1750" height="392" key="GridCell.Tab.1.left" timestamp="1607594789786">
+    <state width="1750" height="392" key="GridCell.Tab.1.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607599581256" />
+    <state width="1750" height="392" key="GridCell.Tab.1.left" timestamp="1607599581255">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="392" key="GridCell.Tab.1.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607594789786" />
-    <state width="1750" height="392" key="GridCell.Tab.1.right" timestamp="1607594789788">
+    <state width="1750" height="392" key="GridCell.Tab.1.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607599581255" />
+    <state width="1750" height="392" key="GridCell.Tab.1.right" timestamp="1607599581259">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="392" key="GridCell.Tab.1.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607594789788" />
+    <state width="1750" height="392" key="GridCell.Tab.1.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607599581259" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/student/StudentImplementation.java</url>
-          <line>54</line>
-          <properties class="student.StudentImplementation" method="sendQuestion">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="1" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/student/Student.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

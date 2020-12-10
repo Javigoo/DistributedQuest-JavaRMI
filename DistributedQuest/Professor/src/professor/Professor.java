@@ -32,7 +32,7 @@ public class Professor {
     }
 
     public static void main(String[] args) {
-        final Integer STUDENTS_NUMBER = 2;
+        final Integer STUDENTS_NUMBER = 1;
 
         try {
             Registry registry = startRegistry(null);
@@ -63,9 +63,10 @@ public class Professor {
                     //6. The students chose their answer and send it back to the server.
                     //  a. It is possible that some students take longer to answer, this should not be a problem for the other students.
                     while (!obj.allStudentsFinishExam()) {
-                        System.out.printf(".");
-                        Thread.sleep(3000);
-                        //recibir respuestas alumnos
+                        obj.wait();
+                        //System.out.printf(".");
+                        //Thread.sleep(3000);
+                        //System.out.printf("Students answers: "+ obj.studentAnswers.values()+"\n");
                     }
 
                     obj.finishExam();

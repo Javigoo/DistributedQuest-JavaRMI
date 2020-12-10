@@ -5,8 +5,7 @@ import common.StudentInterface;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  *
@@ -14,8 +13,7 @@ import java.util.Scanner;
 
 public class StudentImplementation extends UnicastRemoteObject implements StudentInterface {
 
-    private int secretNumber = 0;
-    private Queue<Question> questions;
+    public Queue<Question> questions = new LinkedList();
 
     public StudentImplementation() throws RemoteException {
         super();
@@ -39,7 +37,7 @@ public class StudentImplementation extends UnicastRemoteObject implements Studen
     public void getSecretNumber() {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Enter choice number:");
-        secretNumber = keyboard.nextInt();
+        //secretNumber = keyboard.nextInt();
     }
 
     public void notifyStart() throws RemoteException {
@@ -54,8 +52,8 @@ public class StudentImplementation extends UnicastRemoteObject implements Studen
 
     public void sendQuestion(Question question) throws RemoteException {
         synchronized (this) {
-            System.out.printf(question.toString() + "\n");
-            //this.questions.add(question);
+            System.out.printf("Question: "+question.toString() + "\n");
+            this.questions.add(question);
             this.notify();
         }
     }

@@ -7,12 +7,17 @@ import java.util.List;
 public class Question implements Serializable {
     private final String question;
     private final List<String> choices;
-    private final Integer correctChoice;
+    private Integer correctChoice;
 
     public Question(String question, List<String> choices, Integer correctChoice) {
         this.question = question;
         this.choices = choices;
         this.correctChoice = correctChoice;
+    }
+
+    public Question(String question, List<String> choices) {
+        this.question = question;
+        this.choices = choices;
     }
 
     public Boolean isCorrectAnswer(Integer response) {

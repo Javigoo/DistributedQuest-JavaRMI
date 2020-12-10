@@ -29,7 +29,7 @@ class Exam implements Serializable {
     }
 
     public Boolean isCorrectAnswer(Integer question, Integer response) {
-        return this.questions.get(question).isCorrectAnswer(response);
+        return this.questions.get(question-1).isCorrectAnswer(response);
     }
 
     public Question getNextQuestion() {
@@ -109,7 +109,7 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
 
         synchronized (this) {
             this.students.put(id, student);
-            this.studentAnswers.put(student, null);
+            this.studentAnswers.put(student, new ArrayList<>());
             this.studentIsFinished.put(student, false);
             this.notify();
         }
@@ -147,20 +147,23 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
 
     public void sendQuestions() throws RemoteException {
         for (Question question : this.exam.questions) {
+            Question q = new Question(question.getQuestion(), question.getChoices());
             for (StudentInterface student : this.students.values()) {
-                System.out.printf("Sent question: " + question.getQuestion() + "\n"); //+ " to " + student + "\n");
-                student.sendQuestion(new Question(question.getQuestion(), question.getChoices(), 2));
+                System.out.printf("Sent question: " + q.getQuestion() + "\n"); //+ " to " + student + "\n");
+                student.sendQuestion(q);
             }
         }
     }
 
     public void setAnswer(StudentInterface student, int answer) {
         synchronized (this) {
-            List<Integer> studentAnswers = this.studentAnswers.get(student);
-            studentAnswers.add(answer);
-            if (studentAnswers.size() == this.exam.questions.size()) {
+            System.out.printf("Student set answer: "+answer+"\n");
+            List<Integer> ans = this.studentAnswers.get(student);
+            ans.add(answer);
+            this.studentAnswers.put(student, ans);
+            if (studentAnswers.get(student).size() == this.exam.questions.size()) {
                 // The student is finished.
-                // this.studentIsFinished.get(student) == true;
+                this.studentIsFinished.put(student, true);
             }
             this.notify();
         }

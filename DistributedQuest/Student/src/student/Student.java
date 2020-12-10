@@ -2,10 +2,12 @@ package student;
 
 
 import common.ProfessorInterface;
+import common.Question;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.Scanner;
 
 /**
  *
@@ -20,7 +22,7 @@ public class Student {
 
             //Scanner keyboard = new Scanner(System.in);
             System.out.println("Enter the student id: ");
-            String student_id = "b";
+            String student_id = "aaa";
 
             // 3. The students connect to the room and wait for the exam to start.
             //      a. When joining the exam, students will need to send their university ID.
@@ -29,25 +31,32 @@ public class Student {
 
             synchronized (client) {
                 client.wait();
+
+                // Los estudiantes reciben las preguntas
+                while(client.questions.size() <= 5) {
+                    client.wait(); // No quitar Importante
+                }
+                System.out.printf("All questions: " + client.questions.toString() +"\n");
+
+
                 //6. The students chose their answer and send it back to the server.
                 // a. It is possible that some students take longer to answer, this should not
                 // be a problem for the other students
-                //while(true) {
-                //client.wait();
-                //System.out.printf("Waiting for questions\n");
-                /**
-                 Exam.Question question = client.getNextQuestion();
-                 System.out.println("Question: "+question.getQuestion());
-                 for (String choice : question.getChoices()) {
-                 System.out.println(choice);
-                 }
-                 System.out.println("Introduce your answer: ");
-                 Scanner input = new Scanner(System.in);
+                for (int i = 0; i <= 5; i++){
+                    Question question = client.getNextQuestion();
 
-                 stub.setAnswer(client, 1);
-                 **/
+                    System.out.println(question.getQuestion());
+                    for (String choice : question.getChoices()) {
+                        System.out.println(choice);
+                    }
 
-                //}
+                    System.out.println("Introduce your answer: ");
+                    //Scanner input = new Scanner(System.in);
+
+                    stub.setAnswer(client, 1);
+
+                }
+
                 /**
                  client.getSecretNumber();
                  stub.sendAnswerNumber(client, client.secretNumber);
