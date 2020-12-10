@@ -5,7 +5,8 @@ import common.StudentInterface;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  *
@@ -19,32 +20,8 @@ public class StudentImplementation extends UnicastRemoteObject implements Studen
         super();
     }
 
-    public void notifyWinner() throws RemoteException {
-        System.out.println("Winner");
-        synchronized (this) {
-            this.notify();
-        }
-
-    }
-
-    public void notifyLooser() throws RemoteException {
-        System.out.println("Looser");
-        synchronized (this) {
-            this.notify();
-        }
-    }
-
-    public void getSecretNumber() {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Enter choice number:");
-        //secretNumber = keyboard.nextInt();
-    }
-
     public void notifyStart() throws RemoteException {
         System.out.println("The exam is going to start");
-//        Scanner keyboard = new Scanner(System.in);
-//        System.out.println("enter an integer");
-//        secretNumber = keyboard.nextInt();
         synchronized (this) {
             this.notify();
         }
@@ -52,10 +29,14 @@ public class StudentImplementation extends UnicastRemoteObject implements Studen
 
     public void sendQuestion(Question question) throws RemoteException {
         synchronized (this) {
-            System.out.printf("Question: "+question.toString() + "\n");
+            System.out.printf("Question: " + question.toString() + "\n");
             this.questions.add(question);
             this.notify();
         }
+    }
+
+    public void stillConnect() throws RemoteException {
+
     }
 
     public Question getNextQuestion() throws RemoteException {

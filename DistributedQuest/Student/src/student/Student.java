@@ -52,18 +52,12 @@ public class Student {
                     }
 
                     System.out.println("Introduce your answer: ");
-                    //Integer student_answer = sc.nextInt();
+                    Integer student_answer = sc.nextInt();
 
-                    stub.setAnswer(client, 1);
+                    stub.setAnswer(client, student_answer);
 
                 }
 
-                /**
-                 client.getSecretNumber();
-                 stub.sendAnswerNumber(client, client.secretNumber);
-                 client.wait();
-                 System.exit(0);
-                 **/
             }
 
 

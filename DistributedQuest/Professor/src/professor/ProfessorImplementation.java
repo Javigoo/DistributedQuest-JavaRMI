@@ -226,6 +226,7 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
             this.students.remove(c);
         }
         System.out.printf("Exam finished");
+        System.exit(0);
     }
 
     public void storeGrade(StudentInterface student, Integer grade) {

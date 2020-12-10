@@ -16,7 +16,7 @@ public interface StudentInterface extends Remote {
 
     void sendQuestion(Question question) throws RemoteException;
 
-
+    void stillConnect() throws RemoteException;
 }
 
 
