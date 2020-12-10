@@ -16,6 +16,7 @@ public class Student {
     public static void main(String[] args) {
         String host = (args.length < 1) ? null : args[0];
         try {
+
             Registry registry = LocateRegistry.getRegistry(host);
             StudentImplementation client = new StudentImplementation();
             ProfessorInterface stub = (ProfessorInterface) registry.lookup("Exam");
@@ -29,31 +30,21 @@ public class Student {
             //      a. When joining the exam, students will need to send their university ID.
             stub.joinExam(student_id, client);
 
-
-            synchronized (client) {
-                client.wait();
-
-                // Los estudiantes reciben las preguntas
-                while (client.questions.size() <= 2) {
-                    client.wait(); // No quitar Importante
-                }
-                //System.out.printf("All questions: " + client.questions.toString() + "\n");
-
-
+            while(true) {
+                Thread.sleep(1000);
                 //6. The students chose their answer and send it back to the server.
                 // a. It is possible that some students take longer to answer, this should not
                 // be a problem for the other students
-                while (client.hasNextQuestion()) {
-                    System.out.printf("Número de preguntas: "+client.questions.size()+"\n");
 
+                while (client.hasNextQuestion()) {
                     Question question = client.getNextQuestion();
                     System.out.println(question.getQuestion());
 
-                    System.out.printf(""+question.isCorrectAnswer(1));
+                    System.out.printf("" + question.isCorrectAnswer(1));
 
                     int choice_number = 1;
                     for (String choice : question.getChoices()) {
-                        System.out.println(choice_number+": "+choice);
+                        System.out.println(choice_number + ": " + choice);
                         ++choice_number;
                     }
 
@@ -64,9 +55,7 @@ public class Student {
 
                 }
 
-                System.exit(0);
             }
-
 
         } catch (RemoteException e) {
             System.err.println("remote exception: " + e.toString());
@@ -77,25 +66,4 @@ public class Student {
         }
     }
 
-    /**
-    static class QuestionsThread implements Runnable {
-        StudentImplementation student;
-
-        public QuestionsThread(StudentImplementation obj) {
-            this.student = obj;
-        }
-
-        @Override
-        public void run() {
-            student.questions.size()
-            while (true) {
-                try {
-                    student.wait();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-        **/
 }

@@ -136,7 +136,7 @@ public class Professor {
                             student.stillConnect();
                         } catch (RemoteException e) {
                             exam.calculateGrade(student);
-                            exam.studentIsFinished.put(student, true);
+                            exam.studentsFinished.put(student, true);
                             if(exam.allStudentsFinishExam()){
                                 exam.finishExam();
                             }

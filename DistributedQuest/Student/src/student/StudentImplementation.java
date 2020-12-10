@@ -29,7 +29,7 @@ public class StudentImplementation extends UnicastRemoteObject implements Studen
 
     public void sendQuestion(Question question) throws RemoteException {
         synchronized (this) {
-            System.out.printf("Question: " + question.toString() + "\n");
+            //System.out.printf("Question: " + question.toString() + "\n");
             this.questions.add(question);
             this.notify();
         }
