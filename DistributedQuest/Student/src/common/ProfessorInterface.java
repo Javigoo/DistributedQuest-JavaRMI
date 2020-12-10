@@ -7,7 +7,9 @@ import java.rmi.RemoteException;
  *
  */
 public interface ProfessorInterface extends Remote {
-    public void joinExam(String id, StudentInterface client) throws RemoteException;
-    public void setAnswer(StudentInterface student, int answer) throws RemoteException;
+    void joinExam(String id, StudentInterface client) throws RemoteException;
+
+    void setAnswer(StudentInterface student, int answer) throws RemoteException;
+
 
 }

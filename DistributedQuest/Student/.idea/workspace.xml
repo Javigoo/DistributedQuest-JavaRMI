@@ -20,6 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b5d38be-3e87-4470-aadc-b858a98fcea6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/.idea/DistributedQuest-Old.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DistributedQuest-Old/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Professor/src/common/Question.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/Question.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Professor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Professor/src/common/ProfessorInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/src/common/ProfessorInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Professor/src/common/StudentInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/src/common/StudentInterface.java" afterDir="false" />
@@ -52,6 +60,9 @@
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="common" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/common" />
       <recent name="$PROJECT_DIR$/src/student" />
@@ -101,29 +112,59 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser" timestamp="1607550027979">
+    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser" timestamp="1607594265948">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1607550027979" />
+    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1607594265948" />
     <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607365156683">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1607365156683" />
-    <state width="1750" height="318" key="GridCell.Tab.0.bottom" timestamp="1607550757629">
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom" timestamp="1607596465570">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607550757629" />
-    <state width="1750" height="318" key="GridCell.Tab.0.center" timestamp="1607550757627">
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607596465570" />
+    <state width="1750" height="318" key="GridCell.Tab.0.center" timestamp="1607596465568">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607550757627" />
-    <state width="1750" height="318" key="GridCell.Tab.0.left" timestamp="1607550757626">
+    <state width="1750" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607596465568" />
+    <state width="1750" height="318" key="GridCell.Tab.0.left" timestamp="1607596465567">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607550757626" />
-    <state width="1750" height="318" key="GridCell.Tab.0.right" timestamp="1607550757628">
+    <state width="1750" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607596465567" />
+    <state width="1750" height="318" key="GridCell.Tab.0.right" timestamp="1607596465569">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607550757628" />
+    <state width="1750" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607596465569" />
+    <state width="1750" height="392" key="GridCell.Tab.1.bottom" timestamp="1607594789789">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="392" key="GridCell.Tab.1.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607594789789" />
+    <state width="1750" height="392" key="GridCell.Tab.1.center" timestamp="1607594789787">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="392" key="GridCell.Tab.1.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607594789787" />
+    <state width="1750" height="392" key="GridCell.Tab.1.left" timestamp="1607594789786">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="392" key="GridCell.Tab.1.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607594789786" />
+    <state width="1750" height="392" key="GridCell.Tab.1.right" timestamp="1607594789788">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="392" key="GridCell.Tab.1.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607594789788" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/student/StudentImplementation.java</url>
+          <line>54</line>
+          <properties class="student.StudentImplementation" method="sendQuestion">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
