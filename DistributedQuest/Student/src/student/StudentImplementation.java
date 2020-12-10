@@ -54,8 +54,10 @@ public class StudentImplementation extends UnicastRemoteObject implements Studen
     }
 
     public void notifyEnd(Integer grade) throws RemoteException {
-        System.out.println("The exam is over, your grade is " + grade);
-        System.exit(1);
+        synchronized (this) {
+            System.out.println("The exam is over, your grade is " + grade);
+            System.exit(1);
+        }
     }
 
 }

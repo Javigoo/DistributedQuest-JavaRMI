@@ -172,7 +172,7 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
 
     public void setAnswer(StudentInterface student, int answer) throws RemoteException {
         synchronized (this) {
-            //System.out.printf("Student \"" +this.students.get(student)+ "\" has sent the answer: "+answer+"\n");
+            System.out.printf("Student \"" +this.students.get(student)+ "\" has sent the answer: "+answer+"\n");
             List<Integer> ans = this.studentAnswers.get(student);
             ans.add(answer);
             this.studentAnswers.put(student, ans);
@@ -227,6 +227,7 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
         }
         System.out.print("Exam finished");
         System.exit(0);
+
     }
 
     public void storeGrade(StudentInterface student, Integer grade) {
