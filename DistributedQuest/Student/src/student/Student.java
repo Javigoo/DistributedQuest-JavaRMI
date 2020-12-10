@@ -20,9 +20,10 @@ public class Student {
             StudentImplementation client = new StudentImplementation();
             ProfessorInterface stub = (ProfessorInterface) registry.lookup("Exam");
 
-            //Scanner keyboard = new Scanner(System.in);
             System.out.println("Enter the student id: ");
-            String student_id = "aaa";
+            Scanner sc = new Scanner(System.in);
+            String input = sc.nextLine();
+            String student_id = input;
 
             // 3. The students connect to the room and wait for the exam to start.
             //      a. When joining the exam, students will need to send their university ID.
@@ -51,7 +52,7 @@ public class Student {
                     }
 
                     System.out.println("Introduce your answer: ");
-                    //Scanner input = new Scanner(System.in);
+                    //Integer student_answer = sc.nextInt();
 
                     stub.setAnswer(client, 1);
 

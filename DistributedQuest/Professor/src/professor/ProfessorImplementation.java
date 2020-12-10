@@ -29,7 +29,7 @@ class Exam implements Serializable {
     }
 
     public Boolean isCorrectAnswer(Integer question, Integer response) {
-        return this.questions.get(question-1).isCorrectAnswer(response);
+        return this.questions.get(question - 1).isCorrectAnswer(response);
     }
 
     public Question getNextQuestion() {
@@ -57,7 +57,7 @@ class Exam implements Serializable {
 
 public class ProfessorImplementation extends UnicastRemoteObject implements ProfessorInterface {
     Exam exam = new Exam();
-    HashMap<String, StudentInterface> students = new HashMap<>();
+    HashMap<StudentInterface, String> students = new HashMap<>();
     HashMap<StudentInterface, List<Integer>> studentAnswers = new HashMap<>();
     HashMap<StudentInterface, Boolean> studentIsFinished = new HashMap<>();
 
@@ -108,16 +108,17 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
         }
 
         synchronized (this) {
-            this.students.put(id, student);
+            this.students.put(student, id);
             this.studentAnswers.put(student, new ArrayList<>());
             this.studentIsFinished.put(student, false);
             this.notify();
         }
 
-        System.out.println("Student: " + id + " joined, waiting for notification");
+        //System.out.println("Student \"" + id + "\" joined");
     }
 
     public Boolean allStudentsFinishExam() {
+        //System.out.printf("Finish?: "+this.studentIsFinished.values()+"\n");
         for (Boolean isFinished : this.studentIsFinished.values()) {
             if (!isFinished) {
                 return false;
@@ -128,11 +129,24 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
     }
 
     public void startExam() {
+
+        // Create file grades.txt and if its already created remove content
+         try{
+            File file = new File("grades.txt");
+            if (!file.createNewFile()) {
+                FileWriter myWriter = new FileWriter("grades.txt");
+                myWriter.write("");
+                myWriter.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         System.out.println("The professor has started the exam");
         this.exam.startExam();
 
         List<StudentInterface> error_students = new ArrayList<StudentInterface>();
-        for (StudentInterface student : students.values()) {
+        for (StudentInterface student : students.keySet()) {
             try {
                 student.notifyStart();
             } catch (RemoteException e) {
@@ -148,22 +162,26 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
     public void sendQuestions() throws RemoteException {
         for (Question question : this.exam.questions) {
             Question q = new Question(question.getQuestion(), question.getChoices());
-            for (StudentInterface student : this.students.values()) {
-                System.out.printf("Sent question: " + q.getQuestion() + "\n"); //+ " to " + student + "\n");
+            for (StudentInterface student : this.students.keySet()) {
+                //System.out.printf("Sent question: " + q.getQuestion() + "\n"); //+ " to " + student + "\n");
                 student.sendQuestion(q);
             }
         }
+        System.out.printf("The professor has sent the questions to the students\n");
     }
 
-    public void setAnswer(StudentInterface student, int answer) {
+    public void setAnswer(StudentInterface student, int answer) throws RemoteException {
         synchronized (this) {
-            System.out.printf("Student set answer: "+answer+"\n");
+            //System.out.printf("Student \"" +this.students.get(student)+ "\" has sent the answer: "+answer+"\n");
             List<Integer> ans = this.studentAnswers.get(student);
             ans.add(answer);
             this.studentAnswers.put(student, ans);
             if (studentAnswers.get(student).size() == this.exam.questions.size()) {
                 // The student is finished.
                 this.studentIsFinished.put(student, true);
+                int grade = calculateGrade(student);
+                this.notify();
+                student.notifyEnd(grade);
             }
             this.notify();
         }
@@ -176,7 +194,7 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
 
         List<Integer> answers = this.studentAnswers.get(student);
         if (answers == null) {
-            // Si no se contesta una pregunta cuenta como incorrecta
+            // Si no se contesta ninguna de las preguntas cuentan como incorrectas
             return 0;
         }
         for (Integer answer : answers) {
@@ -186,24 +204,42 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
             question += 1;
         }
 
-        return (10 * correctAnswers) / totalQuestions;
+        int grade = (10 * correctAnswers) / totalQuestions;
+        storeGrade(student, grade);
+        this.students.remove(student);
+        return grade;
     }
 
     public void finishExam() {
         this.exam.finishExam();
         List<StudentInterface> error_students = new ArrayList<StudentInterface>();
-        for (StudentInterface student : students.values()) {
+        for (StudentInterface student : students.keySet()) {
             try {
                 int grade = calculateGrade(student);
                 student.notifyEnd(grade);
             } catch (RemoteException e) {
-                System.out.println("Student is not reachable");
+                //System.out.println("Student is not reachable");
                 error_students.add(student);
             }
         }
         for (StudentInterface c : error_students) {
             this.students.remove(c);
         }
+        System.out.printf("Exam finished");
+    }
+
+    public void storeGrade(StudentInterface student, Integer grade) {
+        String studentGrade = "The grade of the student \"" + this.students.get(student) + "\" is " + grade + "\n";
+        System.out.printf(studentGrade);
+
+        try {
+            FileWriter myWriter = new FileWriter("grades.txt", true);
+            myWriter.write(studentGrade);
+            myWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

@@ -19,20 +19,15 @@ public class Professor {
         try {
             Registry registry = LocateRegistry.getRegistry(port);
             registry.list();
-            // The above call will throw an exception
-            // if the registry does not already exist
             return registry;
         } catch (RemoteException ex) {
-            // No valid registry at that port.
-            System.out.println("RMI registry cannot be located ");
             Registry registry = LocateRegistry.createRegistry(port);
-            System.out.println("RMI registry created at port ");
             return registry;
         }
     }
 
     public static void main(String[] args) {
-        final Integer STUDENTS_NUMBER = 1;
+        final Integer STUDENTS_NUMBER = 2;
 
         try {
             Registry registry = startRegistry(null);
@@ -62,13 +57,13 @@ public class Professor {
 
                     //6. The students chose their answer and send it back to the server.
                     //  a. It is possible that some students take longer to answer, this should not be a problem for the other students.
-                    while (!obj.allStudentsFinishExam()) {
+                    do {
                         obj.wait();
-                        //System.out.printf(".");
-                        //Thread.sleep(3000);
-                        //System.out.printf("Students answers: "+ obj.studentAnswers.values()+"\n");
-                    }
+                    } while (!obj.allStudentsFinishExam());
 
+                    //9. When the professor decides to finish the exam, all currently connected students
+                    //   will receive their grade and the connection will end even if they have not finished the exam.
+                    //   All the grades will also be stored in a file on the professor’s computer.
                     obj.finishExam();
 
                     System.exit(0);
@@ -85,10 +80,6 @@ public class Professor {
     }
 
     static class ProfessorThread implements Runnable {
-        //9. When the professor decides to finish the exam, all currently connected students
-        //   will receive their grade and the connection will end even if they have not finished the exam.
-        //   All the grades will also be stored in a file on the professor’s computer.
-
         ProfessorImplementation exam;
 
         public ProfessorThread(ProfessorImplementation obj) {
@@ -105,8 +96,7 @@ public class Professor {
 
                     switch (input) {
                         case "q":
-                            System.out.printf("Exam finished");
-                            this.exam.finishExam(); // Students will receive their grade and all the grades will be stored in a file on the professor’s computer.
+                            this.exam.finishExam();
                             System.exit(0);
                             break;
                         case "":
