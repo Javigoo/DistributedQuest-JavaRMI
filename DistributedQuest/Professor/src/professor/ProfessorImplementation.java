@@ -162,9 +162,20 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
     public void sendQuestions() throws RemoteException {
         for (Question question : this.exam.questions) {
             Question q = new Question(question.getQuestion(), question.getChoices());
-            for (StudentInterface student : this.students.keySet()) {
-                //System.out.printf("Sent question: " + q.getQuestion() + "\n"); //+ " to " + student + "\n");
-                student.sendQuestion(q);
+            List<StudentInterface> error_students = new ArrayList<StudentInterface>();
+            for (StudentInterface student : students.keySet()) {
+                try {
+                    student.sendQuestion(q);
+                } catch (RemoteException e) {
+                    System.out.println("Student \"" + this.students.get(student) + "\" is not reachable");
+                    error_students.add(student);
+                    this.studentIsFinished.put(student, true);
+                    calculateGrade(student);
+                    this.notify();
+                }
+            }
+            for (StudentInterface c : error_students) {
+                this.students.remove(c);
             }
         }
         System.out.printf("The professor has sent the questions to the students\n");

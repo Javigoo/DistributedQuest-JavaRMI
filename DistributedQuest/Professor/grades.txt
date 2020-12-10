@@ -1,2 +1,0 @@
-The grade of the student "a" is 10
-The grade of the student "b" is 5

@@ -21,11 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8b5d38be-3e87-4470-aadc-b858a98fcea6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../Professor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Professor/Exam.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/Exam.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Professor/grades.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/grades.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Professor/src/common/StudentInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/src/common/StudentInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Professor/src/professor/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/src/professor/Professor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Professor/src/professor/ProfessorImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Professor/src/professor/ProfessorImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/StudentInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/StudentInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/student/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/student/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/student/StudentImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/student/StudentImplementation.java" afterDir="false" />
     </list>
@@ -49,7 +49,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/common" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
@@ -57,7 +57,6 @@
       <recent name="common" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/common" />
       <recent name="$PROJECT_DIR$/src/student" />
     </key>
@@ -109,45 +108,54 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser" timestamp="1607597329193">
+    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser" timestamp="1607607234560">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1607597329193" />
+    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1607607234560" />
     <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607365156683">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1607365156683" />
-    <state width="1750" height="358" key="GridCell.Tab.0.bottom" timestamp="1607608030347">
+    <state width="1750" height="297" key="GridCell.Tab.0.bottom" timestamp="1607614338571">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="358" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607608030347" />
-    <state width="1750" height="358" key="GridCell.Tab.0.center" timestamp="1607608030341">
+    <state width="1750" height="297" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607614338571" />
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom/0.25.1792.1010@0.25.1792.1010" timestamp="1607602336824" />
+    <state width="1750" height="297" key="GridCell.Tab.0.center" timestamp="1607614338568">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="358" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607608030341" />
-    <state width="1750" height="358" key="GridCell.Tab.0.left" timestamp="1607608030340">
+    <state width="1750" height="297" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607614338568" />
+    <state width="1750" height="318" key="GridCell.Tab.0.center/0.25.1792.1010@0.25.1792.1010" timestamp="1607602336821" />
+    <state width="1750" height="297" key="GridCell.Tab.0.left" timestamp="1607614338565">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="358" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607608030340" />
-    <state width="1750" height="358" key="GridCell.Tab.0.right" timestamp="1607608030343">
+    <state width="1750" height="297" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607614338565" />
+    <state width="1750" height="318" key="GridCell.Tab.0.left/0.25.1792.1010@0.25.1792.1010" timestamp="1607602336820" />
+    <state width="1750" height="297" key="GridCell.Tab.0.right" timestamp="1607614338569">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="358" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607608030343" />
-    <state width="1750" height="392" key="GridCell.Tab.1.bottom" timestamp="1607599581261">
+    <state width="1750" height="297" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607614338569" />
+    <state width="1750" height="318" key="GridCell.Tab.0.right/0.25.1792.1010@0.25.1792.1010" timestamp="1607602336823" />
+    <state width="1750" height="392" key="GridCell.Tab.1.bottom" timestamp="1607612685509">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="392" key="GridCell.Tab.1.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607599581261" />
-    <state width="1750" height="392" key="GridCell.Tab.1.center" timestamp="1607599581256">
+    <state width="1750" height="392" key="GridCell.Tab.1.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607612685509" />
+    <state width="1750" height="392" key="GridCell.Tab.1.center" timestamp="1607612685507">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="392" key="GridCell.Tab.1.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607599581256" />
-    <state width="1750" height="392" key="GridCell.Tab.1.left" timestamp="1607599581255">
+    <state width="1750" height="392" key="GridCell.Tab.1.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607612685507" />
+    <state width="1750" height="392" key="GridCell.Tab.1.left" timestamp="1607612685506">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="392" key="GridCell.Tab.1.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607599581255" />
-    <state width="1750" height="392" key="GridCell.Tab.1.right" timestamp="1607599581259">
+    <state width="1750" height="392" key="GridCell.Tab.1.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607612685506" />
+    <state width="1750" height="392" key="GridCell.Tab.1.right" timestamp="1607612685508">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="392" key="GridCell.Tab.1.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607599581259" />
+    <state width="1750" height="392" key="GridCell.Tab.1.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607612685508" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Student$Student.ic" NAME="Student Coverage Results" MODIFIED="1607608328380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>student.*</FILTER>
+    </SUITE>
   </component>
 </project>

@@ -34,21 +34,27 @@ public class Student {
                 client.wait();
 
                 // Los estudiantes reciben las preguntas
-                while(client.questions.size() <= 5) {
+                while (client.questions.size() <= 2) {
                     client.wait(); // No quitar Importante
                 }
-                System.out.printf("All questions: " + client.questions.toString() +"\n");
+                //System.out.printf("All questions: " + client.questions.toString() + "\n");
 
 
                 //6. The students chose their answer and send it back to the server.
                 // a. It is possible that some students take longer to answer, this should not
                 // be a problem for the other students
-                for (int i = 0; i <= 5; i++){
-                    Question question = client.getNextQuestion();
+                while (client.hasNextQuestion()) {
+                    System.out.printf("Número de preguntas: "+client.questions.size()+"\n");
 
+                    Question question = client.getNextQuestion();
                     System.out.println(question.getQuestion());
+
+                    System.out.printf(""+question.isCorrectAnswer(1));
+
+                    int choice_number = 1;
                     for (String choice : question.getChoices()) {
-                        System.out.println(choice);
+                        System.out.println(choice_number+": "+choice);
+                        ++choice_number;
                     }
 
                     System.out.println("Introduce your answer: ");
@@ -58,6 +64,7 @@ public class Student {
 
                 }
 
+                System.exit(0);
             }
 
 
@@ -69,4 +76,26 @@ public class Student {
             e.printStackTrace();
         }
     }
+
+    /**
+    static class QuestionsThread implements Runnable {
+        StudentImplementation student;
+
+        public QuestionsThread(StudentImplementation obj) {
+            this.student = obj;
+        }
+
+        @Override
+        public void run() {
+            student.questions.size()
+            while (true) {
+                try {
+                    student.wait();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+        **/
 }

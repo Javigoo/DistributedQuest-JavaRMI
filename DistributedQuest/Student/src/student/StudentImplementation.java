@@ -39,6 +39,10 @@ public class StudentImplementation extends UnicastRemoteObject implements Studen
 
     }
 
+    public boolean hasNextQuestion(){
+        return this.questions.size() > 0;
+    }
+
     public Question getNextQuestion() throws RemoteException {
         return this.questions.poll();
     }

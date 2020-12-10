@@ -29,7 +29,7 @@ public class Professor {
     }
 
     public static void main(String[] args) {
-        final Integer STUDENTS_NUMBER = 2;
+        final Integer STUDENTS_NUMBER = 1;
 
         try {
             Registry registry = startRegistry(null);
