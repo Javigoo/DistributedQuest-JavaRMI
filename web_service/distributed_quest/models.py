@@ -13,7 +13,7 @@ class Exam(models.Model):
     location = models.CharField(max_length=MAX_UBICATION_LENGTH)
     
     def __str__(self):
-        return self.key
+        return str(self.key)
 
 class Question(models.Model):
     exam = models.ForeignKey(Exam, on_delete=models.CASCADE)
@@ -25,16 +25,17 @@ class Question(models.Model):
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    c_id = models.IntegerField() # 1, 2, 3, 4, ...
+    c_id = models.IntegerField() # No se controlan las opciones a nivel de modelo.
     description = models.CharField(max_length=MAX_DESCRIPTION_LENGTH)
 
     def __str__(self):
-        return self.c_id
+        return str(self.c_id)
 
 class StudentExam(models.Model):
     universityId = models.CharField(primary_key=True, max_length=UNIVERSITY_ID_LENGTH)
-    grade = models.IntegerField()
+    grade = models.IntegerField(blank=True, null=True)
     time_finish = models.DateTimeField()
+    exam = models.ForeignKey(Exam, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.universityId
@@ -46,4 +47,4 @@ class StudentQuestion(models.Model):
     time_sent = models.DateTimeField()
 
     def __str__(self):
-        return self.selected_choice
+        return str(self.selected_choice)

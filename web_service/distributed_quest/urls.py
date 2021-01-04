@@ -5,13 +5,11 @@ from .views import *
 app_name = "distributed_quest"
 
 urlpatterns = [
-    #path('search/', Query.as_view()),
-    path('exams/', ListCreateAPIView.as_view(
-        queryset=Exam.objects.all()), serializer_class=ExamSerializer), 
-        name='exam-info'
-    ),
-    path('exams/{int:key}', ListCreateAPIView.as_view(
-        queryset=Exam.objects.filter(key=key), serializer_class=ExamSerializer), 
-        name='exam-detail'
-    ),
+    path('exams/search/', Query.as_view()),
+    path('exams/', ExamList.as_view()),
+    path('exams/<int:key>/', ExamDetail.as_view()),
+    path('exams/<int:key>/delete/', ExamDelete.as_view()),
+    # Add Exam with description, date, time, location.
+    path('exams/<int:key>/modify', ExamModify.as_view()),
+    path('grades/', GradesList.as_view())
 ]
