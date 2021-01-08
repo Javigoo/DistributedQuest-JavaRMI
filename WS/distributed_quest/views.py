@@ -24,8 +24,8 @@ class ExamDetail(APIView):
         exam = Exam.objects.get(key=key)
         students_for_this_exam = StudentExam.objects.filter(exam=exam)
         for student in students_for_this_exam:
-            if student['grade']:
-                return Response(status=status.HTTP_400) # ??
+            if student.grade:
+                return Response(status=status.HTTP_403_FORBIDDEN) # ??
         exam.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
