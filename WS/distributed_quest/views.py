@@ -31,9 +31,16 @@ class ExamDetail(APIView):
 
     def put(self, request, key, format=None):
         exam = Exam.objects.get(key=key)
-        exam.description = request.GET.get('description')
+        exam.description = request.PUT.get('description')
         exam.save()
         return Response(status=status.HTTP_200_OK)
+    
+    def post(self, request, format=None):
+        serializer = ExamSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class Query(APIView):
     def get(self, request, key, format=None):
