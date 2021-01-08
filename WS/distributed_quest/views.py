@@ -16,7 +16,7 @@ class ExamList(generics.ListCreateAPIView):
     queryset = Exam.objects.all()
     serializer_class = ExamSerializer
 
-class Exam(APIView):
+class ExamDetail(APIView):
     def get(self, request, key, format=None):
         return Response(ExamSerializer(Exam.objects.get(key=key)).data)
 
