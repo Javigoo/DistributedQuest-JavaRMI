@@ -10,7 +10,6 @@ from rest_framework import authentication, permissions
 from django.contrib.auth.models import User
 from django.views.generic import View
 
-
 # Create your views here.
 class ExamList(generics.ListCreateAPIView):
     search_fields = ['description', 'date', 'time', 'location']
@@ -19,11 +18,11 @@ class ExamList(generics.ListCreateAPIView):
 
 class ExamDetail(APIView):
     def get(self, request, key, format=None):
-        return Response(Exam.objects.get(key=key))
+        return Response(ExamSerializer(Exam.objects.get(key=key)).data)
 
 class Query(APIView):
-    def get(self, request, format=None):
-        return Response(Exam.objects.filter(description__contains=request.GET.get('query')))
+    def get(self, request, key, format=None):
+        return Response(ExamSerializer(Exam.objects.filter(description__contains=key)).data)
 
 class ExamModify(APIView):
     def post(self, request, key, format=None):
