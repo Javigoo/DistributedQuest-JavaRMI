@@ -16,27 +16,10 @@ class ExamList(generics.ListCreateAPIView):
     queryset = Exam.objects.all()
     serializer_class = ExamSerializer
 
-class ExamDetail(APIView):
+class Exam(APIView):
     def get(self, request, key, format=None):
         return Response(ExamSerializer(Exam.objects.get(key=key)).data)
 
-class Query(APIView):
-    def get(self, request, key, format=None):
-        return Response(ExamSerializer(Exam.objects.filter(description__contains=key)).data)
-
-class ExamModify(APIView):
-    def post(self, request, key, format=None):
-        exam = Exam.objects.get(key=key)
-        exam.description = request.GET.get('description')
-        exam.save()
-        return Response(status=status.HTTP_200_OK)
-
-class GradesList(generics.ListCreateAPIView):
-    search_fields = ['universityId', 'grade']
-    queryset = StudentExam.objects.all()
-    serializer_class = GradeSerializer
-
-class ExamDelete(APIView):
     def delete(self, request, key, format=None):
         exam = Exam.objects.get(key=key)
         students_for_this_exam = StudentExam.objects.filter(exam=exam)
@@ -45,3 +28,18 @@ class ExamDelete(APIView):
                 return Response(status=status.HTTP_400) # ??
         exam.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def put(self, request, key, format=None):
+        exam = Exam.objects.get(key=key)
+        exam.description = request.GET.get('description')
+        exam.save()
+        return Response(status=status.HTTP_200_OK)
+
+class Query(APIView):
+    def get(self, request, key, format=None):
+        return Response(ExamSerializer(Exam.objects.filter(description__contains=key)).data)
+
+class GradesList(generics.ListCreateAPIView):
+    search_fields = ['universityId', 'grade']
+    queryset = StudentExam.objects.all()
+    serializer_class = GradeSerializer
