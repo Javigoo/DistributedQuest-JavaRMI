@@ -9,7 +9,7 @@ class ExamSerializer(serializers.ModelSerializer):
 
     description = serializers.CharField(max_length=MAX_DESCRIPTION_LENGTH)
     date = serializers.DateField(required=False, format="%d-%m-%Y",)
-    time = serializers.DateTimeField(format="%Y-%m-%dT%H:%M:%S", required=False, read_only=True)
+    time = serializers.DateTimeField(format="%Y-%m-%dT%H:%M:%S")
     location = serializers.CharField(max_length=MAX_UBICATION_LENGTH)
 
 class GradeSerializer(serializers.Serializer):

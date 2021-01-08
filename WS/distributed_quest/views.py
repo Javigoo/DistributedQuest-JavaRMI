@@ -31,7 +31,7 @@ class ExamDetail(APIView):
 
     def put(self, request, key, format=None):
         exam = Exam.objects.get(key=key)
-        exam.description = request.PUT.get('description')
+        exam.description = request.data.get('description')
         exam.save()
         return Response(status=status.HTTP_200_OK)
     

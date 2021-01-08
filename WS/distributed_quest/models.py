@@ -9,7 +9,7 @@ class Exam(models.Model):
     key = models.AutoField(primary_key=True)
     description = models.CharField(max_length=MAX_DESCRIPTION_LENGTH)
     date = models.DateField()
-    time = models.DateTimeField()
+    time = models.DateTimeField(blank=True, null=True)
     location = models.CharField(max_length=MAX_UBICATION_LENGTH)
     
     def __str__(self):
