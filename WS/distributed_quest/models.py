@@ -17,9 +17,8 @@ class Exam(models.Model):
 
 class StudentExam(models.Model):
     universityId = models.CharField(primary_key=True, max_length=UNIVERSITY_ID_LENGTH)
-    grade = models.IntegerField(blank=True, null=True)
-    time_finish = models.DateTimeField()
     exam = models.ForeignKey(Exam, on_delete=models.CASCADE)
+    grade = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
         return self.universityId

@@ -7,9 +7,8 @@ app_name = "distributed_quest"
 urlpatterns = [
     path('exams/', ExamList.as_view()), # OK
     path('exams/<int:key>/', ExamDetail.as_view()), # OK  
-    path('exams/search/<str:key>', Query.as_view()), # 
+    path('exams/search/<str:key>', Query.as_view()), 
     path('exams/<int:key>/delete', ExamDelete.as_view()),
-    # Add Exam with description, date, time, location.
     path('exams/<int:key>/modify', ExamModify.as_view()),
-    path('grades/', GradesList.as_view())
+    path('grades/', GradesList.as_view())   # OK
 ]
