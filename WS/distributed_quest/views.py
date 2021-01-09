@@ -16,7 +16,7 @@ class ExamList(generics.ListCreateAPIView):
     queryset = Exam.objects.all()
     serializer_class = ExamSerializer
 
-class ExamDetail(APIView):
+class ExamView(APIView):
     def get(self, request, key, format=None):
         return Response(ExamSerializer(Exam.objects.get(key=key)).data)
 
@@ -42,7 +42,7 @@ class ExamDetail(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class Query(APIView):
+class ExamQuery(APIView):
     def get(self, request, key, format=None):
         return Response(ExamSerializer(Exam.objects.filter(description__contains=key)).data)
 
@@ -50,3 +50,15 @@ class GradesList(generics.ListCreateAPIView):
     search_fields = ['universityId', 'grade']
     queryset = StudentExam.objects.all()
     serializer_class = GradeSerializer
+
+class GradesView(APIView):
+    def get(self, request, key, format=None):
+        return Response(GradeSerializer(StudentExam.objects.get(universityId=key)).data)
+
+    def put(self, request, key, format=None):
+        exam = Exam.objects.get(key=key)
+        students_for_this_exam = StudentExam.objects.filter(exam=exam)
+        for student in students_for_this_exam:
+            student.grade = request.data.get('grade')
+            student.save()
+        return Response(status=status.HTTP_200_OK)

@@ -2,7 +2,6 @@ from rest_framework import serializers
 from .models import *
 
 class ExamSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Exam
         fields = '__all__' 
@@ -13,5 +12,9 @@ class ExamSerializer(serializers.ModelSerializer):
     location = serializers.CharField(max_length=MAX_UBICATION_LENGTH)
 
 class GradeSerializer(serializers.Serializer):
+    class Meta:
+        model = StudentExam
+        fields = '__all__'
+        
     universityId = serializers.CharField(max_length=UNIVERSITY_ID_LENGTH)
     grade = serializers.IntegerField()

@@ -5,8 +5,10 @@ from .views import *
 app_name = "distributed_quest"
 
 urlpatterns = [
-    path('exams/', ExamList.as_view()), # OK
-    path('exams/<int:key>/', ExamDetail.as_view()), # OK  
-    path('exams/search/<str:key>/', Query.as_view()), 
-    path('grades/', GradesList.as_view())   # OK
+    path('exams/', ExamList.as_view()),
+    path('exams/<int:key>/', ExamView.as_view()),
+    path('exams/search/<str:key>/', ExamQuery.as_view()), 
+    path('grades/', GradesList.as_view()),
+    path('exams/<int:key>/grades/', GradesView.as_view()) 
+
 ]
