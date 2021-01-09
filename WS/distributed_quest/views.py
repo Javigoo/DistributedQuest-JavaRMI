@@ -62,7 +62,9 @@ class GradesView(APIView):
 
     def post(self, request, key, format=None):
         data = request.data
+        data._mutable = True
         data.update({'exam': key})
+        data._mutable = False
         serializer = GradeSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
