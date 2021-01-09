@@ -33,7 +33,7 @@ class ExamView(APIView):
         exam = Exam.objects.get(key=key)
         exam.description = request.data.get('description')
         exam.save()
-        return Response(status=status.HTTP_200_OK)
+        return Response('Changed to '+exam.description, status=status.HTTP_200_OK)
     
     def post(self, request, format=None):
         serializer = ExamSerializer(data=request.data)
@@ -56,12 +56,15 @@ class GradesList(generics.ListCreateAPIView):
 
 class GradesView(APIView):
     def get(self, request, key, format=None):
-        return Response(GradeSerializer(StudentExam.objects.get(universityId=key)).data)
+        d = lambda grade : {"universityId":grade['universityId'],"grade":grade['grade']}
+        student_list = StudentExam.objects.filter(exam__key=key)
+        return Response([d(grade) for grade in GradeSerializer(student_list, many=True).data])
 
-    def put(self, request, key, format=None):
-        exam = Exam.objects.get(key=key)
-        students_for_this_exam = StudentExam.objects.filter(exam=exam)
-        for student in students_for_this_exam:
-            student.grade = request.data.get('grade')
-            student.save()
-        return Response(status=status.HTTP_200_OK)
+    def post(self, request, key, format=None):
+        data = request.data
+        data.update({'exam': key})
+        serializer = GradeSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

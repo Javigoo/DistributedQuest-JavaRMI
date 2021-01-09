@@ -11,9 +11,9 @@ class ExamSerializer(serializers.Serializer):
         return Exam.objects.create(**validated_data)
 
 class GradeSerializer(serializers.Serializer):
-    class Meta:
-        model = StudentExam
-        fields = '__all__'
-        
     universityId = serializers.CharField(max_length=UNIVERSITY_ID_LENGTH)
     grade = serializers.IntegerField()
+    exam = serializers.SlugRelatedField(queryset=Exam.objects.all(), slug_field='key')
+
+    def create(self, validated_data):
+        return StudentExam.objects.create(**validated_data)

@@ -16,9 +16,12 @@ class Exam(models.Model):
         return str(self.key)
 
 class StudentExam(models.Model):
-    universityId = models.CharField(primary_key=True, max_length=UNIVERSITY_ID_LENGTH)
+    universityId = models.CharField(max_length=UNIVERSITY_ID_LENGTH)
     exam = models.ForeignKey(Exam, on_delete=models.CASCADE)
     grade = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        unique_together = ('universityId', 'exam',)
 
     def __str__(self):
         return self.universityId
