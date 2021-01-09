@@ -70,3 +70,15 @@ class GradesView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class ExamsInformation(generics.ListCreateAPIView):
+    # Store and retrieve all of your exams' information in a database in your WS server.
+    # Exams + Grades
+    
+    search_fields = ['description', 'date', 'time', 'location']
+    queryset = Exam.objects.all()
+    serializer_class = ExamSerializer
+
+    search_fields = ['universityId', 'grade']
+    queryset = StudentExam.objects.all()
+    serializer_class = GradeSerializer

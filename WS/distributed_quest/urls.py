@@ -9,5 +9,7 @@ urlpatterns = [
     path('exams/<int:key>/', ExamView.as_view()),
     path('exams/search/', ExamQuery.as_view()), 
     path('grades/', GradesList.as_view()),
-    path('exams/<int:key>/grades/', GradesView.as_view()) 
+    path('exams/<int:key>/grades/', GradesView.as_view()),
+    path('exams/grades/', ExamsInformation.as_view())
+
 ]

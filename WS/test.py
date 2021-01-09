@@ -2,12 +2,14 @@
 
 import os
 import sys
+import uuid 
 import json
+import random
 import requests
 from datetime import datetime
 
-EXAM_ID = "2"
-EXAM_GRADES_ID = "1"
+
+EXAM_ID = "1"
 URL = "http://127.0.0.1:8000/"
 
 def request(method, url, data=None):
@@ -17,9 +19,8 @@ def request(method, url, data=None):
             print("\n"+method.upper(), url)
             response = requests.get(url=URL+url)
         else:
-            return
             print("\n"+method.upper(), url, data)
-            response = requests.get(url=URL+url)
+            response = requests.get(url=URL+url+"?=="+data)
             
     elif method == "post":
         print("\n"+method.upper(), url, data)
@@ -38,14 +39,8 @@ def request(method, url, data=None):
     except:
         print(response)
 
-        """
-        if "grades" in url:
-            print(json.dumps(json.loads(requests.get(url=URL+"grades/").text), indent=2))
-        else:
-            print(json.dumps(json.loads(requests.get(url=URL+"exams/").text), indent=2))
-        """
-
 def main():
+    global EXAM_ID
     exam = {"description": "Exam "+EXAM_ID+" description", 
             "date": datetime.now().strftime("%Y-%m-%d"), 
             "time": datetime.now().strftime("%Y-%m-%dT%H:%M:%S"), 
@@ -53,7 +48,6 @@ def main():
             }
     exam_description = "New exam "+EXAM_ID+" description"
     exam_new_description = {"description": exam_description}
-    grade = {"universityId": "frg5", "grade": "7"}
 
     print("\n### Basic Functions ###")
     request("post", "exams/", exam) # Store in the global directory (WS) exams description, date, time and location
@@ -63,27 +57,35 @@ def main():
     request("get", "exams/search/", exam_description) # search them using textual description (full/partial search).
     request("delete", "exams/"+EXAM_ID+"/") # Delete exam (if it has no grades).
     
+    # Create exam with grades
+    EXAM_ID = nextID(EXAM_ID)
+    exam_grades = {"description": "Exam "+EXAM_ID+" with grades", "date": datetime.now().strftime("%Y-%m-%d"), "time": datetime.now().strftime("%Y-%m-%dT%H:%M:%S"), "location": "8000"}
+    grade = {"universityId": str(uuid.uuid1())[:20], "grade": str(random.randint(0,10))}
+    request("post", "exams/", exam_grades)
+
     print("\n### Advanced Functions ###")
+    request("post", "exams/"+EXAM_ID+"/grades/", grade) # Upload grades to an exam.
     request("get", "grades/") # Download student’s grades.
-    request("post", "exams/"+EXAM_GRADES_ID+"/grades/", grade) # Upload grades to an exam.
     # Manage student’s access (by ID).
     # Store and retrieve all of your exams' information in a database in your WS server.
+
+def nextID(EXAM_ID):
+    EXAM_ID = str(int(EXAM_ID)+1)
+    with open('tmp', 'w') as f:
+        f.write(EXAM_ID)
+    return EXAM_ID
 
 if __name__ == "__main__":
 
     if len(sys.argv) > 1:
         EXAM_ID = sys.argv[1]
-        with open('tmp', 'w') as f:
-                f.write(EXAM_ID)
     else:
         if os.path.exists("tmp"):
             with open('tmp', 'r') as f:
-                EXAM_ID = str(int(f.read()) + 1)
-            with open('tmp', 'w') as f:
-                f.write(EXAM_ID)
-        else:
-            with open('tmp', 'w') as f:
-                f.write(EXAM_ID)
+                EXAM_ID = str(int(f.read()) + 1)    
+    with open('tmp', 'w') as f:
+        f.write(EXAM_ID)
+    
     main()
 
 
