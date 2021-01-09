@@ -43,8 +43,11 @@ class ExamView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ExamQuery(APIView):
-    def get(self, request, key, format=None):
-        return Response(ExamSerializer(Exam.objects.filter(description__contains=key)).data)
+    def get(self, request, format=None):
+        return Response(ExamSerializer(
+            Exam.objects.filter(description__contains=request.GET.get('q')),
+            many=True
+        ).data)
 
 class GradesList(generics.ListCreateAPIView):
     search_fields = ['universityId', 'grade']
