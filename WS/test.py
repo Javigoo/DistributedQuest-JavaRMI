@@ -8,7 +8,6 @@ import random
 import requests
 from datetime import datetime
 
-
 EXAM_ID = "1"
 URL = "http://127.0.0.1:8000/"
 
@@ -19,8 +18,8 @@ def request(method, url, data=None):
             print("\n"+method.upper(), url)
             response = requests.get(url=URL+url)
         else:
-            print("\n"+method.upper(), url, data)
-            response = requests.get(url=URL+url+"?=="+data)
+            print("\n"+method.upper(), url+data)
+            response = requests.get(url=URL+url+data)
             
     elif method == "post":
         print("\n"+method.upper(), url, data)
@@ -41,38 +40,75 @@ def request(method, url, data=None):
 
 def main():
     global EXAM_ID
-    exam = {"description": "Exam "+EXAM_ID+" description", 
-            "date": datetime.now().strftime("%Y-%m-%d"), 
-            "time": datetime.now().strftime("%Y-%m-%dT%H:%M:%S"), 
-            "location": "8000"
-            }
-    exam_description = "New exam "+EXAM_ID+" description"
-    exam_new_description = {"description": exam_description}
+    print("WS DEMO")
 
-    print("\n### Basic Functions ###")
-    request("post", "exams/", exam) # Store in the global directory (WS) exams description, date, time and location
-    request("get", "exams/") # Download exams information
-    request("put", "exams/"+EXAM_ID+"/", exam_new_description) # Modify exam’s description.
-    request("get", "exams/"+EXAM_ID+"/") # Search exam content using the key 
-    request("get", "exams/search/", exam_description) # search them using textual description (full/partial search).
-    request("delete", "exams/"+EXAM_ID+"/") # Delete exam (if it has no grades).
-    
-    # Create exam with grades
-    EXAM_ID = nextID(EXAM_ID)
-    exam_grades = {"description": "Exam "+EXAM_ID+" with grades", "date": datetime.now().strftime("%Y-%m-%d"), "time": datetime.now().strftime("%Y-%m-%dT%H:%M:%S"), "location": "8000"}
-    grade = {"universityId": str(uuid.uuid1())[:20], "grade": str(random.randint(0,10))}
-    request("post", "exams/", exam_grades)
+    print("\n1- Create 4 different exams, the first and the second with similar description (e.g. Distributed Computing 1 & 2)")
+    exam_1_id = getID(EXAM_ID)
+    request("post", "exams/", {"description": "Distributed Computing 1 (ID={})".format(exam_1_id), 
+                                "date": datetime.now().strftime("%Y-%m-%d"), 
+                                "time": datetime.now().strftime("%Y-%m-%dT%H:%M:%S"), 
+                                "location": random.randint(1024,49152)
+                                })
+    exam_2_id = getID(EXAM_ID)
+    request("post", "exams/", {"description": "Distributed Computing 2 (ID={})".format(exam_2_id), 
+                                "date": datetime.now().strftime("%Y-%m-%d"), 
+                                "time": datetime.now().strftime("%Y-%m-%dT%H:%M:%S"), 
+                                "location": random.randint(1024,49152)
+                                })
+    exam_3_id = getID(EXAM_ID)
+    request("post", "exams/", {"description": "Exam 3 description (ID={})".format(exam_3_id), 
+                                "date": datetime.now().strftime("%Y-%m-%d"), 
+                                "time": datetime.now().strftime("%Y-%m-%dT%H:%M:%S"), 
+                                "location": random.randint(1024,49152)
+                                })
+    exam_4_id = getID(EXAM_ID)
+    request("post", "exams/", {"description": "Exam 4 description (ID={})".format(exam_4_id), 
+                                "date": datetime.now().strftime("%Y-%m-%d"), 
+                                "time": datetime.now().strftime("%Y-%m-%dT%H:%M:%S"), 
+                                "location": random.randint(1024,49152)
+                                })
 
-    print("\n### Advanced Functions ###")
-    request("post", "exams/"+EXAM_ID+"/grades/", grade) # Upload grades to an exam.
-    request("get", "grades/") # Download student’s grades.
-    # Manage student’s access (by ID).
-    # Store and retrieve all of your exams' information in a database in your WS server.
+    print("\n2- Modify 3rd’s description")
+    request("put", "exams/"+exam_3_id+"/", {"description": "New exam "+exam_3_id+" description!!!"})
 
-def nextID(EXAM_ID):
-    EXAM_ID = str(int(EXAM_ID)+1)
+    print("\n3-Search an exam by its description (full)")
+    request("get", "exams/search/?q=", "Distributed Computing 1 (ID={})".format(exam_1_id))
+
+    print("\n4- Delete the forth one")
+    request("delete", "exams/"+exam_4_id+"/")
+
+    print("\n5- List all exams")
+    request("get", "exams/")
+
+    print("\n6- Upload grades to the first and the second exam")
+    id_1 = str(uuid.uuid1())[:20] 
+    grade = {"universityId": id_1, "grade": str(random.randint(0,10))}
+    request("post", "exams/"+exam_1_id+"/grades/", grade)
+
+    id_2 = str(uuid.uuid1())[:20]
+    grade = {"universityId": id_2, "grade": str(random.randint(0,10))}
+    request("post", "exams/"+exam_2_id+"/grades/", grade)
+
+    print("\n7- Delete the second")
+    request("delete", "exams/"+exam_2_id+"/")
+
+    print("\n8- Search an exam by its description (partial)")
+    request("get", "exams/search/?q=", "Computing 1")
+
+    print("\n9- Show its grades")
+    request("get", "exams/"+exam_1_id+"/grades/")
+
+    print("\n10- Check some ID from an existent student")
+    request("get", "uid/"+id_1)
+
+    print("\n11- Check some other ID")
+    request("get", "uid/invalidID") 
+
+def getID(EXAM_ID):
+    with open('tmp', 'r') as f:
+        EXAM_ID = f.read()
     with open('tmp', 'w') as f:
-        f.write(EXAM_ID)
+        f.write(str(int(EXAM_ID)+1))
     return EXAM_ID
 
 if __name__ == "__main__":
@@ -82,27 +118,8 @@ if __name__ == "__main__":
     else:
         if os.path.exists("tmp"):
             with open('tmp', 'r') as f:
-                EXAM_ID = str(int(f.read()) + 1)    
+                EXAM_ID = f.read()
     with open('tmp', 'w') as f:
         f.write(EXAM_ID)
     
     main()
-
-
-"""
-curl -H "Content-Type: application/json" \
-    -R POST \
-    -D '{"description": "Exam with grades", "date": "2021-01-01", "time": "2021-01-01T00:00:00", "location": "1234"}' \
-    http://127.0.0.1:8000/exams/
-
-curl -X GET 127.0.0.1:8000/exams/  
-
-curl -X DELETE 127.0.0.1:8000/exams/1/ 
-
-curl -X PUT -d "description"="New description" http://127.0.0.1:8000/exams/1/
-
-curl -X PUT -d "grade"="9" http://127.0.0.1:8000/exams/37/grades/
-
-curl -X PUT -H "Content-Type: application/json" -d '{"grade": "10"}' http://127.0.0.1:8000/exams/1/grades/
-
-"""
