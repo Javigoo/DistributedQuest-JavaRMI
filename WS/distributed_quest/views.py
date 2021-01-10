@@ -25,7 +25,7 @@ class ExamView(APIView):
         students_for_this_exam = StudentExam.objects.filter(exam=exam)
         for student in students_for_this_exam:
             if student.grade:
-                return Response('No pudes eliminar este examen.', 
+                return Response('The exam cannot be deleted if it has grades', 
                     status=status.HTTP_403_FORBIDDEN
                 )
         exam.delete()
@@ -35,7 +35,7 @@ class ExamView(APIView):
         exam = Exam.objects.get(key=key)
         exam.description = request.data.get('description')
         exam.save()
-        return Response('Changed to '+exam.description, status=status.HTTP_200_OK)
+        return Response('Description changed to:',exam.description, status=status.HTTP_200_OK)
     
     def post(self, request, format=None):
         serializer = ExamSerializer(data=request.data)
@@ -62,6 +62,7 @@ class GradesView(APIView):
         student_list = StudentExam.objects.filter(exam__key=key)
         return Response([d(grade) for grade in GradeSerializer(student_list, many=True).data])
 
+    """
     def post(self, request, key, format=None):
         data_list = request.data
         if type(data_list) is list:
@@ -73,20 +74,20 @@ class GradesView(APIView):
                     serializer.save()
                 response.append(serializer.data)
             return Response(response, status=status.HTTP_201_CREATED)
-        return Response('Error: bad reqeust', status=status.HTTP_400_BAD_REQUEST)
+        return Response('Error: bad request', status=status.HTTP_400_BAD_REQUEST)
+    """
 
-class ExamsInformation(generics.ListCreateAPIView):
-    # Store and retrieve all of your exams' information in a database in your WS server.
-    # Exams + Grades
+    def post(self, request, key, format=None):
+        data = request.data
+        data._mutable = True
+        data.update({'exam': key})
+        data._mutable = False
+        serializer = GradeSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-    search_fields = ['description', 'date', 'time', 'location']
-    queryset = Exam.objects.all()
-    serializer_class = ExamSerializer
-
-    search_fields = ['universityId', 'grade']
-    queryset = StudentExam.objects.all()
-    serializer_class = GradeSerializer
-
 class ValidUniversityId(APIView):
     def get(self, request, uid, format=None):
         all_exams_of_an_student = StudentExam.objects.filter(universityId=uid)

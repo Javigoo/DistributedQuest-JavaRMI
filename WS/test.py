@@ -69,7 +69,7 @@ def main():
                                 })
 
     print("\n2- Modify 3rd’s description")
-    request("put", "exams/"+exam_3_id+"/", {"description": "New exam "+exam_3_id+" description!!!"})
+    request("put", "exams/"+exam_3_id+"/", {"description": "New exam 3 description!!! (ID={})".format(exam_3_id)})
 
     print("\n3-Search an exam by its description (full)")
     request("get", "exams/search/?q=", "Distributed Computing 1 (ID={})".format(exam_1_id))
