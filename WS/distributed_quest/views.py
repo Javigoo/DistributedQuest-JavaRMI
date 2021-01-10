@@ -63,14 +63,16 @@ class GradesView(APIView):
         return Response([d(grade) for grade in GradeSerializer(student_list, many=True).data])
 
     def post(self, request, key, format=None):
-        data = request.data
-        # data._mutable = True ¿?
-        data.update({'exam': key})
-        # data._mutable = False ¿?
-        serializer = GradeSerializer(data=data)
-        if serializer.is_valid() and Exam.objects.filter(key=key).exists():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        data_list = request.data
+        if type(data_list) is list:
+            response = []
+            for data in data_list:
+                data.update({'exam': key})
+                serializer = GradeSerializer(data=data)
+                if serializer.is_valid() and Exam.objects.filter(key=key).exists():
+                    serializer.save()
+                response.append(serializer.data)
+            return Response(response, status=status.HTTP_201_CREATED)
         return Response('Error: bad reqeust', status=status.HTTP_400_BAD_REQUEST)
 
 class ExamsInformation(generics.ListCreateAPIView):
