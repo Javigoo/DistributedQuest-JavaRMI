@@ -5,19 +5,24 @@ import common.Question;
 import common.StudentInterface;
 
 import java.io.*;
-import java.net.*;
+import java.net.URLEncoder;
+import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 import java.net.URL;
 import java.net.HttpURLConnection;
 import java.io.OutputStream;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
+
+import java.net.http.*;
+import java.net.URI;
+import java.net.http.HttpClient;
+
+
 
 /**
  *
@@ -59,7 +64,11 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
     HashMap<StudentInterface, List<Integer>> studentAnswers = new HashMap<>();
     HashMap<StudentInterface, Boolean> studentsFinished = new HashMap<>();
 
-    final int EXAM_ID = 5;
+    int EXAM_ID = 0;
+    List<String> studentsValidID = uploadExamStudents(new File("ExamStudents.csv"));
+    private final HttpClient httpClient = HttpClient.newBuilder()
+            .version(HttpClient.Version.HTTP_2)
+            .build();
 
     protected ProfessorImplementation() throws RemoteException {
     }
@@ -86,32 +95,53 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
 
     }
 
-    public void sendExam(Integer port) throws IOException {
-        URL url = new URL("http://127.0.0.1:8000/exams/");
-        HttpURLConnection con = (HttpURLConnection)url.openConnection();
-        con.setRequestMethod("POST");
-        con.setRequestProperty("Content-Type", "application/json; utf-8");
-        con.setDoOutput(true);
+    public List<String> uploadExamStudents(File csv) {
+        List<String> examStudents = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(csv))) {
+            String studentID;
+            while ((studentID = br.readLine()) != null) {
+                examStudents.add(studentID);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return examStudents;
+    }
 
-        String jsonInputString =    "{\"description\": \"RMI exam\", " +
-                "\"time\": \"2021-01-11 17:35:00\", " +
-                "\"date\": \"2021-01-11\", " +
-                "\"location\": \""+port+"\"}";
+    public void sendExam(Integer port) {
+        try {
+            Map<Object, Object> data = new HashMap<>();
+            data.put("description", "RMI exam");
+            data.put("time", "2021-01-11 17:35:00");
+            data.put("date", "2021-01-11");
+            data.put("location", port);
 
-        try(OutputStream os = con.getOutputStream()) {
-            byte[] input = jsonInputString.getBytes("utf-8");
-            os.write(input, 0, input.length);
+            HttpRequest request = HttpRequest.newBuilder()
+                    .POST(buildFormDataFromMap(data))
+                    .uri(URI.create("http://127.0.0.1:8000/exams/"))
+                    .setHeader("User-Agent", "Java 11 HttpClient Bot") // add request header
+                    .header("Content-Type", "application/x-www-form-urlencoded")
+                    .build();
+
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+            String json =  response.body().substring(1, response.body().length() - 1);
+            String[] dataResponse = json.split(",");
+            for (String key: dataResponse){
+                if(key.contains("key")){
+                    EXAM_ID = Integer.parseInt(key.split(":")[1]);
+                }
+            }
+
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
         }
 
-        con.getResponseCode();
-
-        String students [] = { "josemi", "javi"};
-
-        registerIDs(students);
+        registerIDs(studentsValidID);
 
     }
 
-    public void registerIDs(String students []){
+    public void registerIDs(List<String> students){
         try{
             for (String id: students) {
                 URL url = new URL("http://127.0.0.1:8000/exams/"+EXAM_ID+"/grades/");
@@ -120,7 +150,11 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
                 con.setRequestProperty("Content-Type", "application/json; utf-8");
                 con.setDoOutput(true);
 
-                String jsonInputString = "[{\"universityId\": \""+id+"\", \"grade\": -1}]";
+
+                System.out.printf("\n[{\"universityId\": \""+id+"\"}]");
+                System.out.printf("\n(\"http://127.0.0.1:8000/exams/\""+EXAM_ID+"\"/grades/\")");
+
+                String jsonInputString = "[{\"universityId\": \""+id+"\"}]";
 
                 try(OutputStream os = con.getOutputStream()) {
                     byte[] input = jsonInputString.getBytes("utf-8");
@@ -128,7 +162,6 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
                 }
 
                 int s = con.getResponseCode();
-                System.out.printf(String.valueOf(s));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -330,9 +363,9 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
     public void sendGrade(String studentID, int grade) {
 
         try {
-            URL url = new URL("http://127.0.0.1:8000/exams/5/grades/");
+            URL url = new URL("http://127.0.0.1:8000/exams/"+EXAM_ID+"/grades/");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
-            con.setRequestMethod("GET");
+            con.setRequestMethod("PUT");
             con.setRequestProperty("Content-Type", "application/json; utf-8");
             con.setDoOutput(true);
 
@@ -356,6 +389,20 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
         }catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static HttpRequest.BodyPublisher buildFormDataFromMap(Map<Object, Object> data) {
+        var builder = new StringBuilder();
+        for (Map.Entry<Object, Object> entry : data.entrySet()) {
+            if (builder.length() > 0) {
+                builder.append("&");
+            }
+            builder.append(URLEncoder.encode(entry.getKey().toString(), StandardCharsets.UTF_8));
+            builder.append("=");
+            builder.append(URLEncoder.encode(entry.getValue().toString(), StandardCharsets.UTF_8));
+        }
+        System.out.println(builder.toString());
+        return HttpRequest.BodyPublishers.ofString(builder.toString());
     }
 
 }
