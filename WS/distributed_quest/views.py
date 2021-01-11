@@ -18,9 +18,11 @@ class ExamList(generics.ListCreateAPIView):
 
 class ExamView(APIView):
     def get(self, request, key, format=None):
+        if not Exam.objects.filter(key=key).exists(): return Response('Error: bad request', status=status.HTTP_204_NO_CONTENT)
         return Response(ExamSerializer(Exam.objects.get(key=key)).data)
 
     def delete(self, request, key, format=None):
+        if not Exam.objects.filter(key=key).exists(): return Response('Error: bad request', status=status.HTTP_204_NO_CONTENT)
         exam = Exam.objects.get(key=key)
         students_for_this_exam = StudentExam.objects.filter(exam=exam)
         for student in students_for_this_exam:
@@ -32,6 +34,7 @@ class ExamView(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     def put(self, request, key, format=None):
+        if not Exam.objects.filter(key=key).exists(): return Response('Error: bad request', status=status.HTTP_204_NO_CONTENT)
         exam = Exam.objects.get(key=key)
         exam.description = request.data.get('description')
         exam.save()
@@ -58,12 +61,14 @@ class GradesList(generics.ListCreateAPIView):
 
 class GradesView(APIView):
     def get(self, request, key, format=None):
+        if not Exam.objects.filter(key=key).exists(): return Response('Error: bad request', status=status.HTTP_204_NO_CONTENT)
         d = lambda grade : {"universityId":grade['universityId'],"grade":grade['grade']}
         student_list = StudentExam.objects.filter(exam__key=key)
         return Response([d(grade) for grade in GradeSerializer(student_list, many=True).data])
 
     
     def post(self, request, key, format=None):
+        if not Exam.objects.filter(key=key).exists(): return Response('Error: bad request', status=status.HTTP_204_NO_CONTENT)
         data_list = request.data
         if type(data_list) is list:
             response = []
@@ -75,6 +80,26 @@ class GradesView(APIView):
                 response.append(serializer.data)
             return Response(response, status=status.HTTP_201_CREATED)
         return Response('Error: bad request', status=status.HTTP_400_BAD_REQUEST)
+
+
+    def put(self, request, key):
+        print( Exam.objects.filter(key=key), not Exam.objects.filter(key=key).exists())
+        if not Exam.objects.filter(key=key).exists(): return Response('Error: bad request', status=status.HTTP_204_NO_CONTENT)
+        data_list = request.data
+        response = []
+        for data in data_list:
+            try:
+                student_exam = StudentExam.objects.filter(
+                    universityId=data['universityId'], 
+                    exam__key=key
+                    ).first()
+                student_exam.grade = data['grade']
+                student_exam.save()
+                response.append('Student '+data['universityId']+' has '+str(data['grade']))
+            except KeyError:
+                return Response('Error: bad request', status=status.HTTP_400_BAD_REQUEST)
+        return Response(response, status=status.HTTP_200_OK)
+
     
 class ValidUniversityId(APIView):
     def get(self, request, uid, format=None):
