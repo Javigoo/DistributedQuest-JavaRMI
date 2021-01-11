@@ -150,10 +150,6 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
                 con.setRequestProperty("Content-Type", "application/json; utf-8");
                 con.setDoOutput(true);
 
-
-                System.out.printf("\n[{\"universityId\": \""+id+"\"}]");
-                System.out.printf("\n(\"http://127.0.0.1:8000/exams/\""+EXAM_ID+"\"/grades/\")");
-
                 String jsonInputString = "[{\"universityId\": \""+id+"\"}]";
 
                 try(OutputStream os = con.getOutputStream()) {
@@ -161,7 +157,7 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
                     os.write(input, 0, input.length);
                 }
 
-                int s = con.getResponseCode();
+                con.getResponseCode();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -376,15 +372,7 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
                 os.write(input, 0, input.length);
             }
 
-            try(BufferedReader br = new BufferedReader(
-                    new InputStreamReader(con.getInputStream(), "utf-8"))) {
-                StringBuilder response = new StringBuilder();
-                String responseLine = null;
-                while ((responseLine = br.readLine()) != null) {
-                    response.append(responseLine.trim());
-                }
-                System.out.println(response.toString());
-            }
+            System.out.println("\nPUT: "+ con.getResponseCode());
 
         }catch (IOException e) {
             e.printStackTrace();
@@ -401,7 +389,6 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
             builder.append("=");
             builder.append(URLEncoder.encode(entry.getValue().toString(), StandardCharsets.UTF_8));
         }
-        System.out.println(builder.toString());
         return HttpRequest.BodyPublishers.ofString(builder.toString());
     }
 
