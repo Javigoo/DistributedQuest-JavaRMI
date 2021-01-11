@@ -35,7 +35,7 @@ class ExamView(APIView):
         exam = Exam.objects.get(key=key)
         exam.description = request.data.get('description')
         exam.save()
-        return Response('Description changed to:',exam.description, status=status.HTTP_200_OK)
+        return Response('Description changed to: '+ exam.description, status=status.HTTP_200_OK)
     
     def post(self, request, format=None):
         serializer = ExamSerializer(data=request.data)
@@ -62,7 +62,7 @@ class GradesView(APIView):
         student_list = StudentExam.objects.filter(exam__key=key)
         return Response([d(grade) for grade in GradeSerializer(student_list, many=True).data])
 
-    """
+    
     def post(self, request, key, format=None):
         data_list = request.data
         if type(data_list) is list:
@@ -75,18 +75,6 @@ class GradesView(APIView):
                 response.append(serializer.data)
             return Response(response, status=status.HTTP_201_CREATED)
         return Response('Error: bad request', status=status.HTTP_400_BAD_REQUEST)
-    """
-
-    def post(self, request, key, format=None):
-        data = request.data
-        data._mutable = True
-        data.update({'exam': key})
-        data._mutable = False
-        serializer = GradeSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 class ValidUniversityId(APIView):
     def get(self, request, uid, format=None):

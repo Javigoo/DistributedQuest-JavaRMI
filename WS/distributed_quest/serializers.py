@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import *
 
-class ExamSerializer(serializers.Serializer):
+class ExamSerializer(serializers.Serializer): 
     description = serializers.CharField(max_length=MAX_DESCRIPTION_LENGTH)
     date = serializers.DateField(required=False, format="%d-%m-%Y",)
     time = serializers.DateTimeField(required=False, format="%Y-%m-%dT%H:%M:%S")
