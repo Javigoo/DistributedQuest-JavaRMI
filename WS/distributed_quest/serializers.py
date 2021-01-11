@@ -6,6 +6,10 @@ class ExamSerializer(serializers.Serializer):
     date = serializers.DateField(required=False, format="%d-%m-%Y",)
     time = serializers.DateTimeField(required=False, format="%Y-%m-%dT%H:%M:%S")
     location = serializers.CharField(max_length=MAX_UBICATION_LENGTH)
+    key = serializers.SerializerMethodField()
+
+    def get_key(self, obj):
+        return obj.key
 
     def create(self, validated_data):
         return Exam.objects.create(**validated_data)
