@@ -19,19 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adfb3fde-cc51-4754-a44b-0352bf3890f6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Professor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Professor/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Professor/Professor.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Student/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Student/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Student/Student.iml" beforeDir="false" />
-    </list>
+    <list default="true" id="adfb3fde-cc51-4754-a44b-0352bf3890f6" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectId" id="1lL2v4HCWg2rdtTewR5mYsH4RgL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -41,6 +36,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -63,5 +59,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

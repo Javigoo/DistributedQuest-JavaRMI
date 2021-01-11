@@ -11,13 +11,17 @@ import java.util.Scanner;
 /**
  *
  */
+
 public class Professor {
+    public static int PORT;
 
     private static Registry startRegistry(Integer port)
             throws RemoteException {
+
         if (port == null) {
             port = 1099;
         }
+        PORT = port;
         try {
             Registry registry = LocateRegistry.getRegistry(port);
             registry.list();
@@ -26,10 +30,11 @@ public class Professor {
             Registry registry = LocateRegistry.createRegistry(port);
             return registry;
         }
+
     }
 
     public static void main(String[] args) {
-        final Integer STUDENTS_NUMBER = 2;
+        final Integer STUDENTS_NUMBER = 1;
 
         try {
             Registry registry = startRegistry(null);
@@ -49,6 +54,8 @@ public class Professor {
                     // 1. The professor will upload a csv file to the application with the exam’s questions,
                     //  choices and answers, following this format: Question?;choice1;choice2;choice3;...;correct_answer_number.
                     obj.uploadCSV(new File("Exam.csv"));
+
+                    obj.sendExam(PORT);
 
                     //2. The professor will start the exam session and wait for the students to join the room:
                     //  a. The professor needs to know how many students are in the room.

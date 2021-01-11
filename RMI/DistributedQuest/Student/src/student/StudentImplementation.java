@@ -39,6 +39,12 @@ public class StudentImplementation extends UnicastRemoteObject implements Studen
 
     }
 
+    @Override
+    public void notifyInvalidID() throws RemoteException {
+        System.out.println("Error: Invalid ID");
+        System.exit(0);
+    }
+
     public boolean hasNextQuestion(){
         return this.questions.size() > 0;
     }

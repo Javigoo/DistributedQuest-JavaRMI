@@ -20,12 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24315298-2e50-45f1-967f-fe86defd775c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grades.txt" beforeDir="false" afterPath="$PROJECT_DIR$/grades.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/professor/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/professor/Professor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/professor/ProfessorImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/professor/ProfessorImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Student/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Student/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Student/src/student/StudentImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Student/src/student/StudentImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../WS/distributed_quest/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../WS/distributed_quest/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../WS/distributed_quest/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../WS/distributed_quest/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../WS/init.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../../../WS/init.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +37,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
   <component name="ProjectId" id="1lIDTXhGGHMnhcbZTJCJjJZSBRn" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -52,7 +49,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/common" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -137,26 +134,30 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="634" y="311" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1607442004152" />
-    <state width="1750" height="370" key="GridCell.Tab.0.bottom" timestamp="1607620325260">
+    <state width="1750" height="230" key="GridCell.Tab.0.bottom" timestamp="1610363753619">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="370" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607620325260" />
+    <state width="1750" height="230" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1610363753619" />
     <state width="1750" height="280" key="GridCell.Tab.0.bottom/0.25.1792.1010@0.25.1792.1010" timestamp="1607553082724" />
-    <state width="1750" height="370" key="GridCell.Tab.0.center" timestamp="1607620325250">
+    <state width="1750" height="230" key="GridCell.Tab.0.bottom/0.25.1792.1013@0.25.1792.1013" timestamp="1610362547693" />
+    <state width="1750" height="230" key="GridCell.Tab.0.center" timestamp="1610363753617">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="370" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607620325250" />
+    <state width="1750" height="230" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1610363753617" />
     <state width="1750" height="280" key="GridCell.Tab.0.center/0.25.1792.1010@0.25.1792.1010" timestamp="1607553082719" />
-    <state width="1750" height="370" key="GridCell.Tab.0.left" timestamp="1607620325243">
+    <state width="1750" height="230" key="GridCell.Tab.0.center/0.25.1792.1013@0.25.1792.1013" timestamp="1610362547685" />
+    <state width="1750" height="230" key="GridCell.Tab.0.left" timestamp="1610363753616">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="370" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607620325243" />
+    <state width="1750" height="230" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1610363753616" />
     <state width="1750" height="280" key="GridCell.Tab.0.left/0.25.1792.1010@0.25.1792.1010" timestamp="1607553082718" />
-    <state width="1750" height="370" key="GridCell.Tab.0.right" timestamp="1607620325252">
+    <state width="1750" height="230" key="GridCell.Tab.0.left/0.25.1792.1013@0.25.1792.1013" timestamp="1610362547684" />
+    <state width="1750" height="230" key="GridCell.Tab.0.right" timestamp="1610363753618">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="370" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607620325252" />
+    <state width="1750" height="230" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1610363753618" />
     <state width="1750" height="280" key="GridCell.Tab.0.right/0.25.1792.1010@0.25.1792.1010" timestamp="1607553082721" />
+    <state width="1750" height="230" key="GridCell.Tab.0.right/0.25.1792.1013@0.25.1792.1013" timestamp="1610362547692" />
     <state width="1750" height="392" key="GridCell.Tab.1.bottom" timestamp="1607619481199">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>

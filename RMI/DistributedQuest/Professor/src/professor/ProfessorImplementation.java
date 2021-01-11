@@ -5,12 +5,19 @@ import common.Question;
 import common.StudentInterface;
 
 import java.io.*;
+import java.net.*;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+
+import java.net.URL;
+import java.net.HttpURLConnection;
+import java.io.OutputStream;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
 
 /**
  *
@@ -52,6 +59,8 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
     HashMap<StudentInterface, List<Integer>> studentAnswers = new HashMap<>();
     HashMap<StudentInterface, Boolean> studentsFinished = new HashMap<>();
 
+    final int EXAM_ID = 5;
+
     protected ProfessorImplementation() throws RemoteException {
     }
 
@@ -77,6 +86,55 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
 
     }
 
+    public void sendExam(Integer port) throws IOException {
+        URL url = new URL("http://127.0.0.1:8000/exams/");
+        HttpURLConnection con = (HttpURLConnection)url.openConnection();
+        con.setRequestMethod("POST");
+        con.setRequestProperty("Content-Type", "application/json; utf-8");
+        con.setDoOutput(true);
+
+        String jsonInputString =    "{\"description\": \"RMI exam\", " +
+                "\"time\": \"2021-01-11 17:35:00\", " +
+                "\"date\": \"2021-01-11\", " +
+                "\"location\": \""+port+"\"}";
+
+        try(OutputStream os = con.getOutputStream()) {
+            byte[] input = jsonInputString.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+
+        con.getResponseCode();
+
+        String students [] = { "josemi", "javi"};
+
+        registerIDs(students);
+
+    }
+
+    public void registerIDs(String students []){
+        try{
+            for (String id: students) {
+                URL url = new URL("http://127.0.0.1:8000/exams/"+EXAM_ID+"/grades/");
+                HttpURLConnection con = (HttpURLConnection)url.openConnection();
+                con.setRequestMethod("POST");
+                con.setRequestProperty("Content-Type", "application/json; utf-8");
+                con.setDoOutput(true);
+
+                String jsonInputString = "[{\"universityId\": \""+id+"\", \"grade\": -1}]";
+
+                try(OutputStream os = con.getOutputStream()) {
+                    byte[] input = jsonInputString.getBytes("utf-8");
+                    os.write(input, 0, input.length);
+                }
+
+                int s = con.getResponseCode();
+                System.out.printf(String.valueOf(s));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void waitStudents(Integer studentsNumber) throws InterruptedException {
         while (this.getNumStudents() < studentsNumber) {
             System.out.println("Number of students joined: [" + this.getNumStudents() + "/" + studentsNumber + "]");
@@ -96,6 +154,11 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
             student.notifyAlreadyStarted();
         }
 
+        if (!validID(id)) {
+            System.out.printf("Not valid ID: " + id);
+            student.notifyInvalidID();
+        }
+
         synchronized (this) {
             this.students.put(student, id);
             this.studentAnswers.put(student, new ArrayList<>());
@@ -104,6 +167,24 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
         }
 
         //System.out.println("Student \"" + id + "\" joined");
+    }
+
+    public boolean validID(String id) throws RemoteException {
+        try {
+            URL url = new URL("http://127.0.0.1:8000/uid/"+id);
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+
+            int status = con.getResponseCode();
+            if(status == 200){
+                return true;
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 
     public Boolean allStudentsFinishExam() {
@@ -234,6 +315,8 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
         String studentGrade = "The grade of the student \"" + this.students.get(student) + "\" is " + grade + "\n";
         System.out.print(studentGrade);
 
+        sendGrade(this.students.get(student), grade);
+
         try {
             FileWriter myWriter = new FileWriter("grades.txt", true);
             myWriter.write(studentGrade);
@@ -242,6 +325,37 @@ public class ProfessorImplementation extends UnicastRemoteObject implements Prof
             e.printStackTrace();
         }
 
+    }
+
+    public void sendGrade(String studentID, int grade) {
+
+        try {
+            URL url = new URL("http://127.0.0.1:8000/exams/5/grades/");
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+            con.setRequestProperty("Content-Type", "application/json; utf-8");
+            con.setDoOutput(true);
+
+            String jsonInputString = "[{\"universityId\":\""+studentID+"\", \"grade\":"+grade+"}]";
+
+            try (OutputStream os = con.getOutputStream()) {
+                byte[] input = jsonInputString.getBytes("utf-8");
+                os.write(input, 0, input.length);
+            }
+
+            try(BufferedReader br = new BufferedReader(
+                    new InputStreamReader(con.getInputStream(), "utf-8"))) {
+                StringBuilder response = new StringBuilder();
+                String responseLine = null;
+                while ((responseLine = br.readLine()) != null) {
+                    response.append(responseLine.trim());
+                }
+                System.out.println(response.toString());
+            }
+
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
