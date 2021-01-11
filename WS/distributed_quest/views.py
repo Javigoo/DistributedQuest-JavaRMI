@@ -83,7 +83,6 @@ class GradesView(APIView):
 
 
     def put(self, request, key):
-        print( Exam.objects.filter(key=key), not Exam.objects.filter(key=key).exists())
         if not Exam.objects.filter(key=key).exists(): return Response('Error: bad request', status=status.HTTP_204_NO_CONTENT)
         data_list = request.data
         response = []
